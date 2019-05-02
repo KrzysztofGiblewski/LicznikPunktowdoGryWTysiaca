@@ -1,0 +1,13 @@
+package com_krzysztofgiblewski.github.liczpunktydlagrywtysiaca;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+public class LiczPunktyGryWTysiaca extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_licz_punkty_gry_wtysiaca);
+    }
+}
