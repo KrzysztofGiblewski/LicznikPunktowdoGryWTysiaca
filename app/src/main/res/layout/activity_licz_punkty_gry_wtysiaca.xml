@@ -14,7 +14,8 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="8dp">
+        tools:layout_editor_absoluteX="8dp"
+        tools:ignore="MissingConstraints">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,13 +36,11 @@
                     android:inputType="textPersonName"
                     android:text="Name1" />
 
-                <EditText
-                    android:id="@+id/editTextPunktyPierwszego"
+                <TextView
+                    android:id="@+id/textViewPunktyPierwszego"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="number"
                     android:text="0" />
 
                 <EditText
@@ -69,13 +68,11 @@
                     android:inputType="textPersonName"
                     android:text="Name2" />
 
-                <EditText
-                    android:id="@+id/editTextPunktyDrugiego"
+                <TextView
+                    android:id="@+id/textViewPunktyDrugiego"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="number"
                     android:text="0" />
 
                 <EditText
@@ -111,13 +108,11 @@
                     android:inputType="textPersonName"
                     android:text="Name3" />
 
-                <EditText
-                    android:id="@+id/editTextPunktyTrzeciego"
+                <TextView
+                    android:id="@+id/textViewPunktyTrzeciego"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="number"
                     android:text="0" />
 
                 <EditText
