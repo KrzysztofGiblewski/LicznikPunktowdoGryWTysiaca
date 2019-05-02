@@ -87,7 +87,7 @@
                     android:id="@+id/button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Button"
+                    android:text="DODAJ PUNKTY"
                     tools:layout_editor_absoluteX="127dp"
                     tools:layout_editor_absoluteY="342dp" />
 
