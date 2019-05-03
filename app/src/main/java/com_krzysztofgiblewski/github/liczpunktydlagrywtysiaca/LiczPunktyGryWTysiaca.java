@@ -18,6 +18,9 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
     private EditText editTextNowePunktyPierwszego, editTextNowePunktyDrugiego, editTextNowePunktyTrzeciego;
 
     private int liczKolejki = 2;
+    private int starePunktyPierwszego = 0;
+    private int starePunktyDrugiego = 0;
+    private int starePunktyTrzeciego = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +60,10 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
                     int nowePunktyDrugiego = Integer.valueOf(editTextNowePunktyDrugiego.getText().toString());
                     int nowePunktyTrzeciego = Integer.valueOf(editTextNowePunktyTrzeciego.getText().toString());
 
-                    int starePunktyPierwszego = Integer.valueOf(textViewPunktyPierwszego.getText().toString());
-                    int starePunktyDrugiego = Integer.valueOf(textViewPunktyDrugiego.getText().toString());
-                    int starePunktyTrzeciego = Integer.valueOf(textViewPunktyTrzeciego.getText().toString());
+                    starePunktyPierwszego = Integer.valueOf(textViewPunktyPierwszego.getText().toString());
+                    starePunktyDrugiego = Integer.valueOf(textViewPunktyDrugiego.getText().toString());
+                    starePunktyTrzeciego = Integer.valueOf(textViewPunktyTrzeciego.getText().toString());
+
 
                     int sumaPunktuwPierwszego = starePunktyPierwszego + nowePunktyPierwszego;
                     int sumaPunktuwDrugiego = starePunktyDrugiego + nowePunktyDrugiego;
@@ -69,51 +73,59 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
                     textViewPunktyDrugiego.setText(String.valueOf(sumaPunktuwDrugiego));
                     textViewPunktyTrzeciego.setText(String.valueOf(sumaPunktuwTrzeciego));
 
-                    if (sumaPunktuwPierwszego < 1000)
-                        editTextNowePunktyPierwszego.setText("");
-                    else editTextNowePunktyPierwszego.setText("Wygrał");
-                    if (sumaPunktuwDrugiego < 1000)
-                        editTextNowePunktyDrugiego.setText("");
-                    else editTextNowePunktyDrugiego.setText("Wygrał");
-                    if (sumaPunktuwTrzeciego < 1000)
-                        editTextNowePunktyTrzeciego.setText("");
-                    else editTextNowePunktyTrzeciego.setText("Wygrał");
+                    sprawdzKtoWygral(sumaPunktuwPierwszego, sumaPunktuwDrugiego, sumaPunktuwTrzeciego);
 
-                    if (liczKolejki > 3)
-                        liczKolejki = 1;
+                    pokarzCzyjaKolej();
 
-                    if (liczKolejki == 1) {
-                        editTextName1.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-                        editTextName1.setTextColor(Color.RED);
-                        editTextName2.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-                        editTextName2.setTextColor(Color.BLACK);
-                        editTextName3.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-                        editTextName3.setTextColor(Color.BLACK);
-                    }
-                    if (liczKolejki == 2) {
-                        editTextName2.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-                        editTextName2.setTextColor(Color.RED);
-                        editTextName3.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-                        editTextName3.setTextColor(Color.BLACK);
-                        editTextName1.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-                        editTextName1.setTextColor(Color.BLACK);
-                    }
-                    if (liczKolejki == 3) {
-                        editTextName3.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-                        editTextName3.setTextColor(Color.RED);
-                        editTextName1.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-                        editTextName1.setTextColor(Color.BLACK);
-                        editTextName2.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-                        editTextName2.setTextColor(Color.BLACK);
-
-                    }
-
-
-                    liczKolejki += 1;
                 }
 
 
             }
+
+            private void pokarzCzyjaKolej() {
+//                licze do trzech i co trzy restartuje
+                if (liczKolejki > 3)
+                    liczKolejki = 1;
+//          sprawdzam czyja kolej i zmienia mu kolor i pogrubienie
+                if (liczKolejki == 1) {
+                    editTextName1.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+                    editTextName1.setTextColor(Color.RED);
+                    editTextName2.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                    editTextName2.setTextColor(Color.BLACK);
+                    editTextName3.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                    editTextName3.setTextColor(Color.BLACK);
+                }
+                if (liczKolejki == 2) {
+                    editTextName2.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+                    editTextName2.setTextColor(Color.RED);
+                    editTextName3.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                    editTextName3.setTextColor(Color.BLACK);
+                    editTextName1.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                    editTextName1.setTextColor(Color.BLACK);
+                }
+                if (liczKolejki == 3) {
+                    editTextName3.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+                    editTextName3.setTextColor(Color.RED);
+                    editTextName1.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                    editTextName1.setTextColor(Color.BLACK);
+                    editTextName2.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                    editTextName2.setTextColor(Color.BLACK);
+                }
+                //na wyjsciu zwiekszam licznik o jeden
+                liczKolejki += 1;
+            }
         });
+    }
+
+    private void sprawdzKtoWygral(int sumaPunktuwPierwszego, int sumaPunktuwDrugiego, int sumaPunktuwTrzeciego) {
+        if (sumaPunktuwPierwszego < 1000)
+            editTextNowePunktyPierwszego.setText("");
+        else editTextNowePunktyPierwszego.setText("Wygrał");
+        if (sumaPunktuwDrugiego < 1000)
+            editTextNowePunktyDrugiego.setText("");
+        else editTextNowePunktyDrugiego.setText("Wygrał");
+        if (sumaPunktuwTrzeciego < 1000)
+            editTextNowePunktyTrzeciego.setText("");
+        else editTextNowePunktyTrzeciego.setText("Wygrał");
     }
 }
