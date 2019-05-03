@@ -27,7 +27,14 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         przycisk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textViewPunktyPierwszego.setText("100");
+                int punktyPierwszego, punktyDrugiego, PunktyTrzeciego;
+                String nowePunktyPierwszego, nowePunktyDrugiego, nowePunktyTrzeciego;
+                String starePunktyPierwszego = textViewPunktyPierwszego.getText().toString();
+                String starePunktyDrugiego = textViewPunktyDrugiego.getText().toString();
+                String starePunktyTrzeciego = textViewPunktyTrzeciego.getText().toString();
+                textViewPunktyPierwszego.setText(starePunktyPierwszego);
+                textViewPunktyDrugiego.setText(starePunktyDrugiego);
+                textViewPunktyTrzeciego.setText(starePunktyTrzeciego);
             }
         });
     }

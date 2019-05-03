@@ -49,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="number|numberSigned" />
 
             </LinearLayout>
 
@@ -81,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="number|numberSigned" />
 
                 <Button
                     android:id="@+id/button"
@@ -121,7 +121,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="number|numberSigned" />
             </LinearLayout>
 
         </LinearLayout>
