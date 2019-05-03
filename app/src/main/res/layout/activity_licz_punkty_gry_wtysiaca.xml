@@ -36,6 +36,7 @@
                     android:inputType="textPersonName"
                     android:text="Name1"
                     android:textAlignment="center"
+                    android:textColor="@color/colorAccent"
                     android:textStyle="bold" />
 
                 <TextView

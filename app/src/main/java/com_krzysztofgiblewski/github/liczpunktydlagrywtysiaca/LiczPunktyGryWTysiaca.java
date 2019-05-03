@@ -1,5 +1,6 @@
 package com_krzysztofgiblewski.github.liczpunktydlagrywtysiaca;
 
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -38,7 +39,6 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         przycisk = (Button) findViewById(R.id.button);
 
 
-
         przycisk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,28 +69,43 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
                     textViewPunktyDrugiego.setText(String.valueOf(sumaPunktuwDrugiego));
                     textViewPunktyTrzeciego.setText(String.valueOf(sumaPunktuwTrzeciego));
 
-                    editTextNowePunktyPierwszego.setText("");
-                    editTextNowePunktyDrugiego.setText("");
-                    editTextNowePunktyTrzeciego.setText("");
+                    if (sumaPunktuwPierwszego < 1000)
+                        editTextNowePunktyPierwszego.setText("");
+                    else editTextNowePunktyPierwszego.setText("Wygrał");
+                    if (sumaPunktuwDrugiego < 1000)
+                        editTextNowePunktyDrugiego.setText("");
+                    else editTextNowePunktyDrugiego.setText("Wygrał");
+                    if (sumaPunktuwTrzeciego < 1000)
+                        editTextNowePunktyTrzeciego.setText("");
+                    else editTextNowePunktyTrzeciego.setText("Wygrał");
 
                     if (liczKolejki > 3)
                         liczKolejki = 1;
 
                     if (liczKolejki == 1) {
                         editTextName1.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-//                            editTextName1
+                        editTextName1.setTextColor(Color.RED);
                         editTextName2.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                        editTextName2.setTextColor(Color.BLACK);
                         editTextName3.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                        editTextName3.setTextColor(Color.BLACK);
                     }
                     if (liczKolejki == 2) {
                         editTextName2.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+                        editTextName2.setTextColor(Color.RED);
                         editTextName3.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                        editTextName3.setTextColor(Color.BLACK);
                         editTextName1.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                        editTextName1.setTextColor(Color.BLACK);
                     }
                     if (liczKolejki == 3) {
                         editTextName3.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+                        editTextName3.setTextColor(Color.RED);
                         editTextName1.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                        editTextName1.setTextColor(Color.BLACK);
                         editTextName2.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                        editTextName2.setTextColor(Color.BLACK);
+
                     }
 
 
