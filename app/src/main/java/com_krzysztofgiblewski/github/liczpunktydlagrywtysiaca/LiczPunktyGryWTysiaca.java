@@ -21,6 +21,9 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
     private int starePunktyPierwszego = 0;
     private int starePunktyDrugiego = 0;
     private int starePunktyTrzeciego = 0;
+    private int nowePunktyPierwszego = 0;
+    private int nowePunktyDrugiego = 0;
+    private int nowePunktyTrzeciego = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,18 +50,13 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
             public void onClick(View v) {
 
                 //jak brakuje wpisanych punktow
-                if (editTextNowePunktyPierwszego.length() == 0)
-                    Toast.makeText(getApplicationContext(), "nie wpisałeś " + editTextName1.getText().toString() + " punktów", Toast.LENGTH_LONG).show();
-                if (editTextNowePunktyDrugiego.length() == 0)
-                    Toast.makeText(getApplicationContext(), "nie wpisałeś " + editTextName2.getText().toString() + "  punktów", Toast.LENGTH_LONG).show();
-                if (editTextNowePunktyTrzeciego.length() == 0)
-                    Toast.makeText(getApplicationContext(), "nie wpisałeś " + editTextName3.getText().toString() + "  punktów", Toast.LENGTH_LONG).show();
-                //jesli wszystkie punkty sa ok
+                sprawdzCzyWypelnione();
+                //jesli wszystkie punkty sa ok to sprawdzam
                 if (editTextNowePunktyPierwszego.length() > 0 && editTextNowePunktyDrugiego.length() > 0 && editTextNowePunktyTrzeciego.length() > 0) {
 
-                    int nowePunktyPierwszego = Integer.valueOf(editTextNowePunktyPierwszego.getText().toString());
-                    int nowePunktyDrugiego = Integer.valueOf(editTextNowePunktyDrugiego.getText().toString());
-                    int nowePunktyTrzeciego = Integer.valueOf(editTextNowePunktyTrzeciego.getText().toString());
+                    nowePunktyPierwszego = Integer.valueOf(editTextNowePunktyPierwszego.getText().toString());
+                    nowePunktyDrugiego = Integer.valueOf(editTextNowePunktyDrugiego.getText().toString());
+                    nowePunktyTrzeciego = Integer.valueOf(editTextNowePunktyTrzeciego.getText().toString());
 
                     starePunktyPierwszego = Integer.valueOf(textViewPunktyPierwszego.getText().toString());
                     starePunktyDrugiego = Integer.valueOf(textViewPunktyDrugiego.getText().toString());
@@ -74,12 +72,20 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
                     textViewPunktyTrzeciego.setText(String.valueOf(sumaPunktuwTrzeciego));
 
                     sprawdzKtoWygral(sumaPunktuwPierwszego, sumaPunktuwDrugiego, sumaPunktuwTrzeciego);
-
                     pokarzCzyjaKolej();
 
                 }
 
 
+            }
+
+            private void sprawdzCzyWypelnione() {
+                if (editTextNowePunktyPierwszego.length() == 0)
+                    Toast.makeText(getApplicationContext(), "nie wpisałeś " + editTextName1.getText().toString() + " punktów", Toast.LENGTH_SHORT).show();
+                if (editTextNowePunktyDrugiego.length() == 0)
+                    Toast.makeText(getApplicationContext(), "nie wpisałeś " + editTextName2.getText().toString() + "  punktów", Toast.LENGTH_SHORT).show();
+                if (editTextNowePunktyTrzeciego.length() == 0)
+                    Toast.makeText(getApplicationContext(), "nie wpisałeś " + editTextName3.getText().toString() + "  punktów", Toast.LENGTH_LONG).show();
             }
 
             private void pokarzCzyjaKolej() {
