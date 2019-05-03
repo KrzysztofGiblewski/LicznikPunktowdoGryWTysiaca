@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class LiczPunktyGryWTysiaca extends AppCompatActivity {
 
@@ -35,25 +36,32 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                int nowePunktyPierwszego = Integer.valueOf(editTextNowePunktyPierwszego.getText().toString());
-                int nowePunktyDrugiego = Integer.valueOf(editTextNowePunktyDrugiego.getText().toString());
-                int nowePunktyTrzeciego = Integer.valueOf(editTextNowePunktyTrzeciego.getText().toString());
 
-                int starePunktyPierwszego = Integer.valueOf(textViewPunktyPierwszego.getText().toString());
-                int starePunktyDrugiego = Integer.valueOf(textViewPunktyDrugiego.getText().toString());
-                int starePunktyTrzeciego = Integer.valueOf(textViewPunktyTrzeciego.getText().toString());
+                if (editTextNowePunktyPierwszego.length() == 0 || editTextNowePunktyDrugiego.length() == 0 || editTextNowePunktyTrzeciego.length() == 0)
+                    Toast.makeText(getApplicationContext(), "nie wpisałeś wszystkim punktów", Toast.LENGTH_LONG).show();
 
-                int sumaPunktuwPierwszego = starePunktyPierwszego + nowePunktyPierwszego;
-                int sumaPunktuwDrugiego = starePunktyDrugiego + nowePunktyDrugiego;
-                int sumaPunktuwTrzeciego = starePunktyTrzeciego + nowePunktyTrzeciego;
+                if (editTextNowePunktyPierwszego.length() > 0 && editTextNowePunktyDrugiego.length() > 0 && editTextNowePunktyTrzeciego.length() > 0) {
 
-                textViewPunktyPierwszego.setText(String.valueOf(sumaPunktuwPierwszego));
-                textViewPunktyDrugiego.setText(String.valueOf(sumaPunktuwDrugiego));
-                textViewPunktyTrzeciego.setText(String.valueOf(sumaPunktuwTrzeciego));
+                    int nowePunktyPierwszego = Integer.valueOf(editTextNowePunktyPierwszego.getText().toString());
+                    int nowePunktyDrugiego = Integer.valueOf(editTextNowePunktyDrugiego.getText().toString());
+                    int nowePunktyTrzeciego = Integer.valueOf(editTextNowePunktyTrzeciego.getText().toString());
 
-                editTextNowePunktyPierwszego.setText("0");
-                editTextNowePunktyDrugiego.setText("0");
-                editTextNowePunktyTrzeciego.setText("0");
+                    int starePunktyPierwszego = Integer.valueOf(textViewPunktyPierwszego.getText().toString());
+                    int starePunktyDrugiego = Integer.valueOf(textViewPunktyDrugiego.getText().toString());
+                    int starePunktyTrzeciego = Integer.valueOf(textViewPunktyTrzeciego.getText().toString());
+
+                    int sumaPunktuwPierwszego = starePunktyPierwszego + nowePunktyPierwszego;
+                    int sumaPunktuwDrugiego = starePunktyDrugiego + nowePunktyDrugiego;
+                    int sumaPunktuwTrzeciego = starePunktyTrzeciego + nowePunktyTrzeciego;
+
+                    textViewPunktyPierwszego.setText(String.valueOf(sumaPunktuwPierwszego));
+                    textViewPunktyDrugiego.setText(String.valueOf(sumaPunktuwDrugiego));
+                    textViewPunktyTrzeciego.setText(String.valueOf(sumaPunktuwTrzeciego));
+
+                    editTextNowePunktyPierwszego.setText("");
+                    editTextNowePunktyDrugiego.setText("");
+                    editTextNowePunktyTrzeciego.setText("");
+                }
 
 
             }
