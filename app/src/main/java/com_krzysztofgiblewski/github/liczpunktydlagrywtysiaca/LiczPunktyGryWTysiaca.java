@@ -1,5 +1,6 @@
 package com_krzysztofgiblewski.github.liczpunktydlagrywtysiaca;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -15,9 +16,7 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
     private TextView textViewPunktyPierwszego, textViewPunktyDrugiego, textViewPunktyTrzeciego;
     private EditText editTextNowePunktyPierwszego, editTextNowePunktyDrugiego, editTextNowePunktyTrzeciego;
 
-    private boolean pierwszy = true;
-    private boolean drogi = false;
-    private boolean trzeci = false;
+    private int liczKolejki = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,18 +38,19 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         przycisk = (Button) findViewById(R.id.button);
 
 
+
         przycisk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
+                //jak brakuje wpisanych punktow
                 if (editTextNowePunktyPierwszego.length() == 0)
                     Toast.makeText(getApplicationContext(), "nie wpisałeś " + editTextName1.getText().toString() + " punktów", Toast.LENGTH_LONG).show();
                 if (editTextNowePunktyDrugiego.length() == 0)
                     Toast.makeText(getApplicationContext(), "nie wpisałeś " + editTextName2.getText().toString() + "  punktów", Toast.LENGTH_LONG).show();
                 if (editTextNowePunktyTrzeciego.length() == 0)
                     Toast.makeText(getApplicationContext(), "nie wpisałeś " + editTextName3.getText().toString() + "  punktów", Toast.LENGTH_LONG).show();
-
+                //jesli wszystkie punkty sa ok
                 if (editTextNowePunktyPierwszego.length() > 0 && editTextNowePunktyDrugiego.length() > 0 && editTextNowePunktyTrzeciego.length() > 0) {
 
                     int nowePunktyPierwszego = Integer.valueOf(editTextNowePunktyPierwszego.getText().toString());
@@ -72,6 +72,29 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
                     editTextNowePunktyPierwszego.setText("");
                     editTextNowePunktyDrugiego.setText("");
                     editTextNowePunktyTrzeciego.setText("");
+
+                    if (liczKolejki > 3)
+                        liczKolejki = 1;
+
+                    if (liczKolejki == 1) {
+                        editTextName1.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+//                            editTextName1
+                        editTextName2.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                        editTextName3.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                    }
+                    if (liczKolejki == 2) {
+                        editTextName2.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+                        editTextName3.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                        editTextName1.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                    }
+                    if (liczKolejki == 3) {
+                        editTextName3.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+                        editTextName1.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                        editTextName2.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                    }
+
+
+                    liczKolejki += 1;
                 }
 
 
