@@ -24,6 +24,9 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
     private int nowePunktyPierwszego = 0;
     private int nowePunktyDrugiego = 0;
     private int nowePunktyTrzeciego = 0;
+    private int sumaPunktuwPierwszego = 0;
+    private int sumaPunktuwDrugiego = 0;
+    private int sumaPunktuwTrzeciego = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,24 +56,7 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
                 sprawdzCzyWypelnione();
                 //jesli wszystkie punkty sa ok to sprawdzam
                 if (editTextNowePunktyPierwszego.length() > 0 && editTextNowePunktyDrugiego.length() > 0 && editTextNowePunktyTrzeciego.length() > 0) {
-
-                    nowePunktyPierwszego = Integer.valueOf(editTextNowePunktyPierwszego.getText().toString());
-                    nowePunktyDrugiego = Integer.valueOf(editTextNowePunktyDrugiego.getText().toString());
-                    nowePunktyTrzeciego = Integer.valueOf(editTextNowePunktyTrzeciego.getText().toString());
-
-                    starePunktyPierwszego = Integer.valueOf(textViewPunktyPierwszego.getText().toString());
-                    starePunktyDrugiego = Integer.valueOf(textViewPunktyDrugiego.getText().toString());
-                    starePunktyTrzeciego = Integer.valueOf(textViewPunktyTrzeciego.getText().toString());
-
-
-                    int sumaPunktuwPierwszego = starePunktyPierwszego + nowePunktyPierwszego;
-                    int sumaPunktuwDrugiego = starePunktyDrugiego + nowePunktyDrugiego;
-                    int sumaPunktuwTrzeciego = starePunktyTrzeciego + nowePunktyTrzeciego;
-
-                    textViewPunktyPierwszego.setText(String.valueOf(sumaPunktuwPierwszego));
-                    textViewPunktyDrugiego.setText(String.valueOf(sumaPunktuwDrugiego));
-                    textViewPunktyTrzeciego.setText(String.valueOf(sumaPunktuwTrzeciego));
-
+                    pobierzIUstawWszystkiePola();
                     sprawdzKtoWygral(sumaPunktuwPierwszego, sumaPunktuwDrugiego, sumaPunktuwTrzeciego);
                     pokarzCzyjaKolej();
 
@@ -79,48 +65,69 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
 
             }
 
-            private void sprawdzCzyWypelnione() {
-                if (editTextNowePunktyPierwszego.length() == 0)
-                    Toast.makeText(getApplicationContext(), "nie wpisałeś " + editTextName1.getText().toString() + " punktów", Toast.LENGTH_SHORT).show();
-                if (editTextNowePunktyDrugiego.length() == 0)
-                    Toast.makeText(getApplicationContext(), "nie wpisałeś " + editTextName2.getText().toString() + "  punktów", Toast.LENGTH_SHORT).show();
-                if (editTextNowePunktyTrzeciego.length() == 0)
-                    Toast.makeText(getApplicationContext(), "nie wpisałeś " + editTextName3.getText().toString() + "  punktów", Toast.LENGTH_LONG).show();
-            }
 
-            private void pokarzCzyjaKolej() {
-//                licze do trzech i co trzy restartuje
-                if (liczKolejki > 3)
-                    liczKolejki = 1;
-//          sprawdzam czyja kolej i zmienia mu kolor i pogrubienie
-                if (liczKolejki == 1) {
-                    editTextName1.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-                    editTextName1.setTextColor(Color.RED);
-                    editTextName2.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-                    editTextName2.setTextColor(Color.BLACK);
-                    editTextName3.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-                    editTextName3.setTextColor(Color.BLACK);
-                }
-                if (liczKolejki == 2) {
-                    editTextName2.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-                    editTextName2.setTextColor(Color.RED);
-                    editTextName3.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-                    editTextName3.setTextColor(Color.BLACK);
-                    editTextName1.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-                    editTextName1.setTextColor(Color.BLACK);
-                }
-                if (liczKolejki == 3) {
-                    editTextName3.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-                    editTextName3.setTextColor(Color.RED);
-                    editTextName1.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-                    editTextName1.setTextColor(Color.BLACK);
-                    editTextName2.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-                    editTextName2.setTextColor(Color.BLACK);
-                }
-                //na wyjsciu zwiekszam licznik o jeden
-                liczKolejki += 1;
-            }
         });
+    }
+
+    private void sprawdzCzyWypelnione() {
+        if (editTextNowePunktyPierwszego.length() == 0)
+            Toast.makeText(getApplicationContext(), "nie wpisałeś " + editTextName1.getText().toString() + " punktów", Toast.LENGTH_SHORT).show();
+        if (editTextNowePunktyDrugiego.length() == 0)
+            Toast.makeText(getApplicationContext(), "nie wpisałeś " + editTextName2.getText().toString() + "  punktów", Toast.LENGTH_SHORT).show();
+        if (editTextNowePunktyTrzeciego.length() == 0)
+            Toast.makeText(getApplicationContext(), "nie wpisałeś " + editTextName3.getText().toString() + "  punktów", Toast.LENGTH_LONG).show();
+    }
+
+    private void pokarzCzyjaKolej() {
+//                licze do trzech i co trzy restartuje
+        if (liczKolejki > 3)
+            liczKolejki = 1;
+//          sprawdzam czyja kolej i zmienia mu kolor i pogrubienie
+        if (liczKolejki == 1) {
+            editTextName1.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+            editTextName1.setTextColor(Color.RED);
+            editTextName2.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+            editTextName2.setTextColor(Color.BLACK);
+            editTextName3.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+            editTextName3.setTextColor(Color.BLACK);
+        }
+        if (liczKolejki == 2) {
+            editTextName2.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+            editTextName2.setTextColor(Color.RED);
+            editTextName3.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+            editTextName3.setTextColor(Color.BLACK);
+            editTextName1.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+            editTextName1.setTextColor(Color.BLACK);
+        }
+        if (liczKolejki == 3) {
+            editTextName3.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+            editTextName3.setTextColor(Color.RED);
+            editTextName1.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+            editTextName1.setTextColor(Color.BLACK);
+            editTextName2.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+            editTextName2.setTextColor(Color.BLACK);
+        }
+        //na wyjsciu zwiekszam licznik o jeden
+        liczKolejki += 1;
+    }
+
+    private void pobierzIUstawWszystkiePola() {
+        nowePunktyPierwszego = Integer.valueOf(editTextNowePunktyPierwszego.getText().toString());
+        nowePunktyDrugiego = Integer.valueOf(editTextNowePunktyDrugiego.getText().toString());
+        nowePunktyTrzeciego = Integer.valueOf(editTextNowePunktyTrzeciego.getText().toString());
+
+        starePunktyPierwszego = Integer.valueOf(textViewPunktyPierwszego.getText().toString());
+        starePunktyDrugiego = Integer.valueOf(textViewPunktyDrugiego.getText().toString());
+        starePunktyTrzeciego = Integer.valueOf(textViewPunktyTrzeciego.getText().toString());
+
+
+        sumaPunktuwPierwszego = starePunktyPierwszego + nowePunktyPierwszego;
+        sumaPunktuwDrugiego = starePunktyDrugiego + nowePunktyDrugiego;
+        sumaPunktuwTrzeciego = starePunktyTrzeciego + nowePunktyTrzeciego;
+
+        textViewPunktyPierwszego.setText(String.valueOf(sumaPunktuwPierwszego));
+        textViewPunktyDrugiego.setText(String.valueOf(sumaPunktuwDrugiego));
+        textViewPunktyTrzeciego.setText(String.valueOf(sumaPunktuwTrzeciego));
     }
 
     private void sprawdzKtoWygral(int sumaPunktuwPierwszego, int sumaPunktuwDrugiego, int sumaPunktuwTrzeciego) {
