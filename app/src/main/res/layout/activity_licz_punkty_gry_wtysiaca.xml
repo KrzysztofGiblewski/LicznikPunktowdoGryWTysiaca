@@ -34,7 +34,8 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name1" />
+                    android:text="Name1"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textViewPunktyPierwszego"
