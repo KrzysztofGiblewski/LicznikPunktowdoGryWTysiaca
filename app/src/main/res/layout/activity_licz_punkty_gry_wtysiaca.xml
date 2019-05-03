@@ -39,13 +39,33 @@
                     android:textColor="@color/colorAccent"
                     android:textStyle="bold" />
 
+                <CheckBox
+                    android:id="@+id/checkBoxBombaPierwszego"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="bomba"
+                    android:textAlignment="viewStart"
+                    android:textSize="8sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="1" />
+
                 <TextView
                     android:id="@+id/textViewPunktyPierwszego"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="0"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="24sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="1" />
 
                 <EditText
                     android:id="@+id/editTextNoweZdobytePunktyPierwszego"
@@ -74,13 +94,33 @@
                     android:text="Name2"
                     android:textAlignment="center" />
 
+                <CheckBox
+                    android:id="@+id/checkBoxBombaDrugiego"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="bomba"
+                    android:textAlignment="viewStart"
+                    android:textSize="8sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="1" />
+
                 <TextView
                     android:id="@+id/textViewPunktyDrugiego"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="0"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="24sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="1" />
 
                 <EditText
                     android:id="@+id/editTextNoweZdobytePunktyDrugiego"
@@ -90,6 +130,11 @@
                     android:ems="10"
                     android:inputType="number|numberSigned"
                     android:textAlignment="center" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="49dp"
+                    android:layout_weight="1" />
 
                 <Button
                     android:id="@+id/button"
@@ -119,13 +164,33 @@
                     android:text="Name3"
                     android:textAlignment="center" />
 
+                <CheckBox
+                    android:id="@+id/checkBoxBombaTrzeciego"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="bomba"
+                    android:textAlignment="viewStart"
+                    android:textSize="8sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="1" />
+
                 <TextView
                     android:id="@+id/textViewPunktyTrzeciego"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="0"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="24sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="1" />
 
                 <EditText
                     android:id="@+id/editTextNoweZdobytePunktyTrzeciego"
