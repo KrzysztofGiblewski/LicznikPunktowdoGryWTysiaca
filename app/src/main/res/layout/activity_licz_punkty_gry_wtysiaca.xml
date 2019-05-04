@@ -146,6 +146,18 @@
                     tools:layout_editor_absoluteX="127dp"
                     tools:layout_editor_absoluteY="342dp" />
 
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="49dp"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/buttonReset"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Reset gry" />
+
             </LinearLayout>
 
             <LinearLayout

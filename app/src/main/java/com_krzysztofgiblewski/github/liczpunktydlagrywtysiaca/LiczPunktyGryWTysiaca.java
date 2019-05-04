@@ -13,6 +13,7 @@ import android.widget.Toast;
 public class LiczPunktyGryWTysiaca extends AppCompatActivity {
 
     private Button przycisk;
+    private Button buttonReset;
     private EditText editTextName1, editTextName2, editTextName3;
     private TextView textViewPunktyPierwszego, textViewPunktyDrugiego, textViewPunktyTrzeciego;
     private EditText editTextNowePunktyPierwszego, editTextNowePunktyDrugiego, editTextNowePunktyTrzeciego;
@@ -32,7 +33,56 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_licz_punkty_gry_wtysiaca);
+//      ustawiam editText i textView i button powiazuje z r.id.button itd
+        setupWszystkichElementow();
 
+
+        przycisk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //jak brakuje wpisanych punktow
+                sprawdzCzyWypelnione();
+                //jesli wszystkie punkty sa ok to sprawdzam
+                jakWszystkieWypelnioneToDzialaj();
+            }
+
+
+        });
+        buttonReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resetGry();
+            }
+        });
+    }
+
+    private void resetGry() {
+        liczKolejki = 2;
+        sumaPunktuwPierwszego = 0;
+        sumaPunktuwDrugiego = 0;
+        sumaPunktuwTrzeciego = 0;
+        textViewPunktyPierwszego.setText(String.valueOf(sumaPunktuwPierwszego));
+        textViewPunktyDrugiego.setText(String.valueOf(sumaPunktuwDrugiego));
+        textViewPunktyTrzeciego.setText(String.valueOf(sumaPunktuwTrzeciego));
+        editTextName1.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+        editTextName1.setTextColor(Color.RED);
+        editTextName2.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+        editTextName2.setTextColor(Color.BLACK);
+        editTextName3.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+        editTextName3.setTextColor(Color.BLACK);
+
+    }
+
+    private void jakWszystkieWypelnioneToDzialaj() {
+        if (editTextNowePunktyPierwszego.length() > 0 && editTextNowePunktyDrugiego.length() > 0 && editTextNowePunktyTrzeciego.length() > 0) {
+            pobierzIUstawWszystkiePola();
+            sprawdzKtoWygral(sumaPunktuwPierwszego, sumaPunktuwDrugiego, sumaPunktuwTrzeciego);
+            pokarzCzyjaKolej();
+
+        }
+    }
+
+    private void setupWszystkichElementow() {
         editTextName1 = (EditText) findViewById(R.id.editTextName1);
         editTextName2 = (EditText) findViewById(R.id.editTextName2);
         editTextName3 = (EditText) findViewById(R.id.editTextName3);
@@ -46,27 +96,7 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         editTextNowePunktyTrzeciego = (EditText) findViewById(R.id.editTextNoweZdobytePunktyTrzeciego);
 
         przycisk = (Button) findViewById(R.id.button);
-
-
-        przycisk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //jak brakuje wpisanych punktow
-                sprawdzCzyWypelnione();
-                //jesli wszystkie punkty sa ok to sprawdzam
-                if (editTextNowePunktyPierwszego.length() > 0 && editTextNowePunktyDrugiego.length() > 0 && editTextNowePunktyTrzeciego.length() > 0) {
-                    pobierzIUstawWszystkiePola();
-                    sprawdzKtoWygral(sumaPunktuwPierwszego, sumaPunktuwDrugiego, sumaPunktuwTrzeciego);
-                    pokarzCzyjaKolej();
-
-                }
-
-
-            }
-
-
-        });
+        buttonReset = (Button) findViewById(R.id.buttonReset);
     }
 
     private void sprawdzCzyWypelnione() {
