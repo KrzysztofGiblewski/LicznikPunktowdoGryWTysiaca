@@ -150,7 +150,6 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         starePunktyDrugiego = Integer.valueOf(textViewPunktyDrugiego.getText().toString());
         starePunktyTrzeciego = Integer.valueOf(textViewPunktyTrzeciego.getText().toString());
 
-
         sumaPunktuwPierwszego = starePunktyPierwszego + nowePunktyPierwszego;
         sumaPunktuwDrugiego = starePunktyDrugiego + nowePunktyDrugiego;
         sumaPunktuwTrzeciego = starePunktyTrzeciego + nowePunktyTrzeciego;
