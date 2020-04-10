@@ -18,7 +18,7 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
     private TextView textViewPunktyPierwszego, textViewPunktyDrugiego, textViewPunktyTrzeciego;
     private EditText editTextNowePunktyPierwszego, editTextNowePunktyDrugiego, editTextNowePunktyTrzeciego;
 
-    private int liczKolejki = 0;
+    private int liczKolejki = 2;
     private int starePunktyPierwszego = 0;
     private int starePunktyDrugiego = 0;
     private int starePunktyTrzeciego = 0;
@@ -65,9 +65,8 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         outState.putString("aaa", textViewPunktyPierwszego.getText().toString());
         outState.putString("bbb", textViewPunktyDrugiego.getText().toString());
         outState.putString("ccc", textViewPunktyTrzeciego.getText().toString());
-        outState.putInt("kolej", liczKolejki);
 
-
+        outState.putInt("liczKolejki", liczKolejki);
     }
 
     //po obrubeniu ekranu wskakuje ten stan z saveInstance.getString i po kluczy "aaa" pobiera zachowany stan
@@ -77,10 +76,8 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         textViewPunktyPierwszego.setText(savedInstanceState.getString("aaa"));
         textViewPunktyDrugiego.setText(savedInstanceState.getString("bbb"));
         textViewPunktyTrzeciego.setText(savedInstanceState.getString("ccc"));
-        liczKolejki = savedInstanceState.getInt("kolej");
-        if (savedInstanceState.getString("aaa") != "")
-            pokarzCzyjaKolej();
-
+        liczKolejki = savedInstanceState.getInt("liczKolejki");
+        pokarzCzyjaKolej();
 
     }
 
@@ -168,6 +165,7 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
             editTextName2.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
             editTextName2.setTextColor(Color.BLACK);
         }
+
 
     }
 
