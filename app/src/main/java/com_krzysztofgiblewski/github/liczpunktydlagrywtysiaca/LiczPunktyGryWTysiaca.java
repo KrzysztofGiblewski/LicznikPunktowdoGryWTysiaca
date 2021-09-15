@@ -82,6 +82,7 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
     }
 
     private void resetGry() {
+
         liczKolejki = 2;
         sumaPunktuwPierwszego = 0;
         sumaPunktuwDrugiego = 0;
