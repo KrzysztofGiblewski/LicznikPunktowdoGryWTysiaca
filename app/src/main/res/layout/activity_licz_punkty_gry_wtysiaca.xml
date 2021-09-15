@@ -168,8 +168,11 @@
                     android:id="@+id/buttonReset"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Reset gry" />
+                    android:layout_weight="2"
+                    android:ellipsize="middle"
+                    android:scrollbarStyle="insideInset"
+                    android:text="Reset gry"
+                    android:textIsSelectable="false" />
 
             </LinearLayout>
 
