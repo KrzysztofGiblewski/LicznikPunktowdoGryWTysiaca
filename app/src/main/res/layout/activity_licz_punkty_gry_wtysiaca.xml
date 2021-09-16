@@ -33,8 +33,12 @@
         tools:visibility="visible">
 
         <LinearLayout
-            android:layout_width="401dp"
-            android:layout_height="match_parent">
+            android:id="@+id/ramka"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="bottom|center_horizontal|fill_horizontal|top"
+            android:keepScreenOn="true"
+            android:verticalScrollbarPosition="defaultPosition">
 
             <LinearLayout
                 android:layout_width="match_parent"
