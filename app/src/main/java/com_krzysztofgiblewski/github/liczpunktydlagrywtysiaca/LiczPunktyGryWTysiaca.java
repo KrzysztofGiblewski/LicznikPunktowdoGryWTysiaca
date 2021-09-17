@@ -1,5 +1,9 @@
 package com_krzysztofgiblewski.github.liczpunktydlagrywtysiaca;
 
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -50,10 +54,28 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
 
 
         });
+
         buttonReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resetGry();
+                // tworze okno dialogowe dla potwierdzenia czy restartować
+                AlertDialog.Builder oknoDialogowe = new AlertDialog.Builder(LiczPunktyGryWTysiaca.this);
+                oknoDialogowe.setTitle("Potwierdź reset gry");
+                oknoDialogowe.setMessage("Czy na pewno skasować punkty?");
+                oknoDialogowe.setPositiveButton("TAK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        resetGry();
+                    }
+                });
+                oknoDialogowe.setNegativeButton("NIE", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(LiczPunktyGryWTysiaca.this, "Zostawiam jak jest", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                oknoDialogowe.show(); // i wyświetlam okno dialogowe
+
             }
         });
     }
@@ -82,7 +104,6 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
     }
 
     private void resetGry() {
-
         liczKolejki = 2;
         sumaPunktuwPierwszego = 0;
         sumaPunktuwDrugiego = 0;
