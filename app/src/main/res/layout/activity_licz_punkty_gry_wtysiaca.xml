@@ -167,7 +167,7 @@
                     <Button
                         android:id="@+id/button"
                         android:layout_width="match_parent"
-                        android:layout_height="97dp"
+                        android:layout_height="68dp"
                         android:layout_gravity="bottom"
                         android:text="DODAJ PUNKTY"
                         android:textAlignment="center"

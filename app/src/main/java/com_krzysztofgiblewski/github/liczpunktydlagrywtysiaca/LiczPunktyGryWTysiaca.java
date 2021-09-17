@@ -1,7 +1,6 @@
 package com_krzysztofgiblewski.github.liczpunktydlagrywtysiaca;
 
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
@@ -40,6 +39,8 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         setContentView(R.layout.activity_licz_punkty_gry_wtysiaca);
 //      ustawiam editText i textView i button powiazuje z r.id.button itd
         setupWszystkichElementow();
+        // ukrywam gorna belke z nazwa apki
+        getSupportActionBar().hide();
 
 
         przycisk.setOnClickListener(new View.OnClickListener() {
