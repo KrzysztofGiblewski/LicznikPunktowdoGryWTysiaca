@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">LiczPunktyDlaGryWTysiaca</string>
+    <string name="app_name" translatable="false">LiczPunktyDlaGryWTysiaca</string>
     <string name="dodaj_punkty">ADD POINTS</string>
     <string name="reset_gry">Reset game</string>
     <string name="name1">Player1</string>
     <string name="name2">Player2</string>
     <string name="name3">Player3</string>
-    <string name="bomba">pause</string>
+    <string name="bomba">pass</string>
     <string name="textDialogBoxTytul">Confirm</string>
     <string name="textDialogBoxText">Are you sure?</string>
     <string name="textButtonaTak">Yes</string>
@@ -14,5 +14,6 @@
     <string name="tekstNieWpisales">you have not completed the form </string>
     <string name="textPuntow">points</string>
     <string name="textWygral">WON </string>
+    <string name="check_who_won">check who won</string>
 
 </resources>

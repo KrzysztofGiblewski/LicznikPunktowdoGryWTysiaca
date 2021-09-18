@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">LiczPunktyDlaGryWTysiaca</string>
-    <string name="bomba">pause</string>
+    <string name="bomba">pass</string>
     <string name="dodaj_punkty">ADD POINTS</string>
     <string name="name1">Player1</string>
     <string name="name2">Player2</string>
@@ -15,4 +14,5 @@
     <string name="textPuntow">points</string>
     <string name="textToastuZostawiamJakJest">Stays as is</string>
     <string name="textWygral">WON</string>
+    <string name="check_who_won">check who won</string>
 </resources>

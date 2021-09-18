@@ -166,6 +166,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:orientation="vertical"></LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:orientation="vertical">
 
                     <Button
@@ -178,11 +184,6 @@
                         android:textStyle="bold"
                         tools:layout_editor_absoluteX="127dp"
                         tools:layout_editor_absoluteY="342dp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"></LinearLayout>
 
                 </LinearLayout>
 
@@ -201,6 +202,11 @@
                     android:ellipsize="middle"
                     android:text="@string/reset_gry"
                     android:textIsSelectable="false" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"
+                    android:layout_weight="1" />
 
 
             </LinearLayout>
@@ -235,6 +241,11 @@
                     android:layout_height="30dp"
                     android:layout_weight="1" />
 
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
                 <TextView
                     android:id="@+id/textViewPunktyTrzeciego"
                     android:layout_width="match_parent"
@@ -259,6 +270,21 @@
                     android:ems="10"
                     android:inputType="number|numberSigned"
                     android:textAlignment="center" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="121dp"
+                    android:layout_weight="1" />
+
+                <Switch
+                    android:id="@+id/switchSprawdz"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="@string/check_who_won"
+                    tools:checked="true"
+                    tools:visibility="visible" />
             </LinearLayout>
 
         </LinearLayout>

@@ -9,17 +9,27 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class LiczPunktyGryWTysiaca extends AppCompatActivity {
 
-    private Button przycisk, buttonReset;
-    private EditText editTextName1, editTextName2, editTextName3;
-    private TextView textViewPunktyPierwszego, textViewPunktyDrugiego,
-            textViewPunktyTrzeciego, editTextNowePunktyPierwszego,
-            editTextNowePunktyDrugiego, editTextNowePunktyTrzeciego;
+    private Button przycisk,
+            buttonReset;
+    private EditText editTextName1,
+            editTextName2,
+            editTextName3;
+    private TextView textViewPunktyPierwszego,
+            textViewPunktyDrugiego,
+            textViewPunktyTrzeciego,
+            editTextNowePunktyPierwszego,
+            editTextNowePunktyDrugiego,
+            editTextNowePunktyTrzeciego;
+
+    private Switch switchSprawdz;
 
     private int liczKolejki = 2;
     private int starePunktyPierwszego,
@@ -31,6 +41,8 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
             sumaPunktuwPierwszego,
             sumaPunktuwDrugiego,
             sumaPunktuwTrzeciego = 0;
+
+    private boolean sprawdzaj = true;
 
 
     @Override
@@ -46,9 +58,9 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         przycisk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //jak brakuje wpisanych punktow
+// jak brakuje wpisanych punktow
                 sprawdzCzyWypelnione();
-                //jesli wszystkie punkty sa ok to sprawdzam
+// jesli wszystkie punkty sa ok to sprawdzam
                 jakWszystkieWypelnioneToDzialaj();
 
             }
@@ -59,7 +71,7 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         buttonReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // tworze okno dialogowe dla potwierdzenia czy restartować
+// tworze okno dialogowe dla potwierdzenia czy restartować
                 AlertDialog.Builder oknoDialogowe = new AlertDialog.Builder(LiczPunktyGryWTysiaca.this);
                 oknoDialogowe.setTitle(getString(R.string.textDialogBoxTytul));
                 oknoDialogowe.setMessage(getString(R.string.textDialogBoxText));
@@ -75,11 +87,24 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
                         Toast.makeText(LiczPunktyGryWTysiaca.this, getString(R.string.textToastuZostawiamJakJest), Toast.LENGTH_SHORT).show();
                     }
                 });
-                oknoDialogowe.show(); // i wyświetlam okno dialogowe
+// i wyświetlam okno dialogowe
+                oknoDialogowe.show();
 
             }
         });
+// tu ustawiam swich tak żeby zmieniał zmienną sprawdzaj na true lub false
+        switchSprawdz = findViewById(R.id.switchSprawdz);
+        switchSprawdz.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (switchSprawdz.isChecked() == true)
+                    sprawdzaj = true;
+                else sprawdzaj = false;
+            }
+        });
+
     }
+
 
     // Zapobieganie znikaniu punktów zapisuje putString pod kluczem "aaa"
     @Override
@@ -92,7 +117,7 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         outState.putInt("liczKolejki", liczKolejki);
     }
 
-    //po obrubeniu ekranu wskakuje ten stan z saveInstance.getString i po kluczy "aaa" pobiera zachowany stan
+    // po obrubeniu ekranu wskakuje ten stan z saveInstance.getString i po kluczy "aaa" pobiera zachowany stan
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
@@ -103,6 +128,7 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         pokarzCzyjaKolej();
 
     }
+
 
     private void resetGry() {
         liczKolejki = 2;
@@ -211,14 +237,22 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
     }
 
     private void sprawdzKtoWygral(int sumaPunktuwPierwszego, int sumaPunktuwDrugiego, int sumaPunktuwTrzeciego) {
-        if (sumaPunktuwPierwszego < 1000)
+
+        if (sprawdzaj == true) {
+            if (sumaPunktuwPierwszego < 1000)
+                editTextNowePunktyPierwszego.setText("");
+            else editTextNowePunktyPierwszego.setText(getString(R.string.textWygral));
+            if (sumaPunktuwDrugiego < 1000)
+                editTextNowePunktyDrugiego.setText("");
+            else editTextNowePunktyDrugiego.setText(getString(R.string.textWygral));
+            if (sumaPunktuwTrzeciego < 1000)
+                editTextNowePunktyTrzeciego.setText("");
+            else editTextNowePunktyTrzeciego.setText(getString(R.string.textWygral));
+        } else {
             editTextNowePunktyPierwszego.setText("");
-        else editTextNowePunktyPierwszego.setText(getString(R.string.textWygral));
-        if (sumaPunktuwDrugiego < 1000)
             editTextNowePunktyDrugiego.setText("");
-        else editTextNowePunktyDrugiego.setText(getString(R.string.textWygral));
-        if (sumaPunktuwTrzeciego < 1000)
             editTextNowePunktyTrzeciego.setText("");
-        else editTextNowePunktyTrzeciego.setText(getString(R.string.textWygral));
+        }
+
     }
 }

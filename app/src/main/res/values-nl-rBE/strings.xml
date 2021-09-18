@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reset_gry">starte das spiel neu</string>
+    <string name="bomba">pause</string>
+    <string name="dodaj_punkty">Punkte hinzufügen</string>
+    <string name="name1">Spieler1</string>
+    <string name="name2">Spieler2</string>
+    <string name="name3">Spieler3</string>
+    <string name="tekstNieWpisales">Sie haben das Feld nicht ausgefüllt</string>
+    <string name="textButtonaNie">Nö</string>
+    <string name="textButtonaTak">Ja</string>
+    <string name="textDialogBoxText">bist du sicher?</string>
+    <string name="textDialogBoxTytul">bestätigen Sie</string>
+    <string name="textPuntow">punkte</string>
+    <string name="textToastuZostawiamJakJest">es bleibt unverändert</string>
+    <string name="textWygral">GEWONNEN</string>
+    <string name="check_who_won">Überprüfen Sie, wer gewonnen hat</string>
+</resources>
