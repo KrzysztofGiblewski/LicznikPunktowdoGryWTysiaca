@@ -41,7 +41,8 @@
             android:layout_height="wrap_content"
             android:gravity="bottom|center_horizontal|fill_horizontal|top"
             android:keepScreenOn="true"
-            android:verticalScrollbarPosition="defaultPosition">
+            android:verticalScrollbarPosition="defaultPosition"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -56,7 +57,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name1"
+                    android:text="@string/name1"
                     android:textAlignment="center"
                     android:textColor="@color/colorAccent"
                     android:textStyle="bold" />
@@ -66,7 +67,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="bomba"
+                    android:text="@string/bomba"
                     android:textAlignment="viewStart"
                     android:textSize="8sp" />
 
@@ -80,9 +81,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:autoText="false"
                     android:text="0"
                     android:textAlignment="center"
-                    android:textSize="24sp" />
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -113,7 +116,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name2"
+                    android:text="@string/name2"
                     android:textAlignment="center" />
 
                 <CheckBox
@@ -121,7 +124,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="bomba"
+                    android:text="@string/bomba"
                     android:textAlignment="viewStart"
                     android:textSize="8sp" />
 
@@ -137,7 +140,8 @@
                     android:layout_weight="1"
                     android:text="0"
                     android:textAlignment="center"
-                    android:textSize="24sp" />
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -169,7 +173,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="68dp"
                         android:layout_gravity="bottom"
-                        android:text="DODAJ PUNKTY"
+                        android:text="@string/dodaj_punkty"
                         android:textAlignment="center"
                         android:textStyle="bold"
                         tools:layout_editor_absoluteX="127dp"
@@ -195,7 +199,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:ellipsize="middle"
-                    android:text="Reset gry"
+                    android:text="@string/reset_gry"
                     android:textIsSelectable="false" />
 
 
@@ -214,7 +218,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name3"
+                    android:text="@string/name3"
                     android:textAlignment="center" />
 
                 <CheckBox
@@ -222,7 +226,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="bomba"
+                    android:text="@string/bomba"
                     android:textAlignment="viewStart"
                     android:textSize="8sp" />
 
@@ -236,9 +240,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:autoText="false"
                     android:text="0"
                     android:textAlignment="center"
-                    android:textSize="24sp" />
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
                 <Space
                     android:layout_width="match_parent"

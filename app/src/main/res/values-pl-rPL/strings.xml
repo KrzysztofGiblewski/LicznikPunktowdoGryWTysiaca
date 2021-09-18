@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LiczPunktyDlaGryWTysiaca</string>
+    <string name="bomba">bomba</string>
+    <string name="dodaj_punkty">DODAJ PUNKTY</string>
+    <string name="name1">Zawodnik1</string>
+    <string name="name2">Zawodnik2</string>
+    <string name="name3">Zawodnik3</string>
+    <string name="reset_gry">Restartuj grę</string>
+    <string name="tekstNieWpisales">nie wypełniłeś pola</string>
+    <string name="textButtonaNie">Nie</string>
+    <string name="textButtonaTak">Tak</string>
+    <string name="textDialogBoxText">Jesteś pewien?</string>
+    <string name="textDialogBoxTytul">Potwierdź</string>
+    <string name="textPuntow">punktów</string>
+    <string name="textToastuZostawiamJakJest">Zostaje jak jest</string>
+    <string name="textWygral">WYGRAŁ</string>
+</resources>

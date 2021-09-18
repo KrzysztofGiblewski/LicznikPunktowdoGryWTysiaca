@@ -15,31 +15,31 @@ import android.widget.Toast;
 
 public class LiczPunktyGryWTysiaca extends AppCompatActivity {
 
-    private Button przycisk;
-    private Button buttonReset;
+    private Button przycisk, buttonReset;
     private EditText editTextName1, editTextName2, editTextName3;
-    private TextView textViewPunktyPierwszego, textViewPunktyDrugiego, textViewPunktyTrzeciego;
-    private EditText editTextNowePunktyPierwszego, editTextNowePunktyDrugiego, editTextNowePunktyTrzeciego;
+    private TextView textViewPunktyPierwszego, textViewPunktyDrugiego,
+            textViewPunktyTrzeciego, editTextNowePunktyPierwszego,
+            editTextNowePunktyDrugiego, editTextNowePunktyTrzeciego;
 
     private int liczKolejki = 2;
-    private int starePunktyPierwszego = 0;
-    private int starePunktyDrugiego = 0;
-    private int starePunktyTrzeciego = 0;
-    private int nowePunktyPierwszego = 0;
-    private int nowePunktyDrugiego = 0;
-    private int nowePunktyTrzeciego = 0;
-    private int sumaPunktuwPierwszego = 0;
-    private int sumaPunktuwDrugiego = 0;
-    private int sumaPunktuwTrzeciego = 0;
+    private int starePunktyPierwszego,
+            starePunktyDrugiego,
+            starePunktyTrzeciego,
+            nowePunktyPierwszego,
+            nowePunktyDrugiego,
+            nowePunktyTrzeciego,
+            sumaPunktuwPierwszego,
+            sumaPunktuwDrugiego,
+            sumaPunktuwTrzeciego = 0;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_licz_punkty_gry_wtysiaca);
-//      ustawiam editText i textView i button powiazuje z r.id.button itd
+// ustawiam editText i textView i button powiazuje z r.id.button itd
         setupWszystkichElementow();
-        // ukrywam gorna belke z nazwa apki
+// ukrywam gorna belke z nazwa apki
         getSupportActionBar().hide();
 
 
@@ -61,18 +61,18 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
             public void onClick(View v) {
                 // tworze okno dialogowe dla potwierdzenia czy restartować
                 AlertDialog.Builder oknoDialogowe = new AlertDialog.Builder(LiczPunktyGryWTysiaca.this);
-                oknoDialogowe.setTitle("Potwierdź reset gry");
-                oknoDialogowe.setMessage("Czy na pewno skasować punkty?");
-                oknoDialogowe.setPositiveButton("TAK", new DialogInterface.OnClickListener() {
+                oknoDialogowe.setTitle(getString(R.string.textDialogBoxTytul));
+                oknoDialogowe.setMessage(getString(R.string.textDialogBoxText));
+                oknoDialogowe.setPositiveButton(getString(R.string.textButtonaTak), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         resetGry();
                     }
                 });
-                oknoDialogowe.setNegativeButton("NIE", new DialogInterface.OnClickListener() {
+                oknoDialogowe.setNegativeButton(getString(R.string.textButtonaNie), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(LiczPunktyGryWTysiaca.this, "Zostawiam jak jest", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LiczPunktyGryWTysiaca.this, getString(R.string.textToastuZostawiamJakJest), Toast.LENGTH_SHORT).show();
                     }
                 });
                 oknoDialogowe.show(); // i wyświetlam okno dialogowe
@@ -152,11 +152,11 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
 
     private void sprawdzCzyWypelnione() {
         if (editTextNowePunktyPierwszego.length() == 0)
-            Toast.makeText(getApplicationContext(), "nie wpisałeś " + editTextName1.getText().toString() + " punktów", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.tekstNieWpisales) + editTextName1.getText().toString() + getString(R.string.textPuntow), Toast.LENGTH_SHORT).show();
         if (editTextNowePunktyDrugiego.length() == 0)
-            Toast.makeText(getApplicationContext(), "nie wpisałeś " + editTextName2.getText().toString() + "  punktów", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.tekstNieWpisales) + editTextName2.getText().toString() + getString(R.string.textPuntow), Toast.LENGTH_SHORT).show();
         if (editTextNowePunktyTrzeciego.length() == 0)
-            Toast.makeText(getApplicationContext(), "nie wpisałeś " + editTextName3.getText().toString() + "  punktów", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.tekstNieWpisales) + editTextName3.getText().toString() + getString(R.string.textPuntow), Toast.LENGTH_LONG).show();
     }
 
     private void pokarzCzyjaKolej() {
@@ -213,12 +213,12 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
     private void sprawdzKtoWygral(int sumaPunktuwPierwszego, int sumaPunktuwDrugiego, int sumaPunktuwTrzeciego) {
         if (sumaPunktuwPierwszego < 1000)
             editTextNowePunktyPierwszego.setText("");
-        else editTextNowePunktyPierwszego.setText("Wygrał");
+        else editTextNowePunktyPierwszego.setText(getString(R.string.textWygral));
         if (sumaPunktuwDrugiego < 1000)
             editTextNowePunktyDrugiego.setText("");
-        else editTextNowePunktyDrugiego.setText("Wygrał");
+        else editTextNowePunktyDrugiego.setText(getString(R.string.textWygral));
         if (sumaPunktuwTrzeciego < 1000)
             editTextNowePunktyTrzeciego.setText("");
-        else editTextNowePunktyTrzeciego.setText("Wygrał");
+        else editTextNowePunktyTrzeciego.setText(getString(R.string.textWygral));
     }
 }

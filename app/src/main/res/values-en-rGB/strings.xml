@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LiczPunktyDlaGryWTysiaca</string>
+    <string name="bomba">pause</string>
+    <string name="dodaj_punkty">ADD POINTS</string>
+    <string name="name1">Player1</string>
+    <string name="name2">Player2</string>
+    <string name="name3">Player3</string>
+    <string name="reset_gry">Reset game</string>
+    <string name="tekstNieWpisales">you have not completed the form</string>
+    <string name="textButtonaNie">No</string>
+    <string name="textButtonaTak">Yes</string>
+    <string name="textDialogBoxText">Are you sure?</string>
+    <string name="textDialogBoxTytul">Confirm</string>
+    <string name="textPuntow">points</string>
+    <string name="textToastuZostawiamJakJest">Stays as is</string>
+    <string name="textWygral">WON</string>
+</resources>
