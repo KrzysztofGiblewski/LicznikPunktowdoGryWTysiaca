@@ -245,6 +245,7 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
     }
 
     private void sprawdzKtoWygral(int sumaPunktuwPierwszego, int sumaPunktuwDrugiego, int sumaPunktuwTrzeciego) {
+        // punkty ktore mozna ustawic po przekroczeniu ktorych wyskoczy wygrana
         punktyDoWygranej = Integer.valueOf(editTekstNumberPunktyDoWygranej.getText().toString());
 
         if (sprawdzaj == true) {
