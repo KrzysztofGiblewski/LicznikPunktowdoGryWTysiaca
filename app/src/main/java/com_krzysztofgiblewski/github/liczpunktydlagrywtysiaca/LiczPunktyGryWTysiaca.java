@@ -22,6 +22,8 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
     private EditText editTextName1,
             editTextName2,
             editTextName3;
+    private EditText editTekstNumberPunktyDoWygranej;
+
     private TextView textViewPunktyPierwszego,
             textViewPunktyDrugiego,
             textViewPunktyTrzeciego,
@@ -32,6 +34,9 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
     private Switch switchSprawdz;
 
     private int liczKolejki = 2;
+
+    private int punktyDoWygranej = 1000;
+
     private int starePunktyPierwszego,
             starePunktyDrugiego,
             starePunktyTrzeciego,
@@ -164,6 +169,7 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         editTextName2 = (EditText) findViewById(R.id.editTextName2);
         editTextName3 = (EditText) findViewById(R.id.editTextName3);
 
+
         textViewPunktyPierwszego = (TextView) findViewById(R.id.textViewPunktyPierwszego);
         textViewPunktyDrugiego = (TextView) findViewById(R.id.textViewPunktyDrugiego);
         textViewPunktyTrzeciego = (TextView) findViewById(R.id.textViewPunktyTrzeciego);
@@ -174,6 +180,8 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
 
         przycisk = (Button) findViewById(R.id.button);
         buttonReset = (Button) findViewById(R.id.buttonReset);
+
+        editTekstNumberPunktyDoWygranej = (EditText) findViewById(R.id.editTextNPDoW);
     }
 
     private void sprawdzCzyWypelnione() {
@@ -237,15 +245,16 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
     }
 
     private void sprawdzKtoWygral(int sumaPunktuwPierwszego, int sumaPunktuwDrugiego, int sumaPunktuwTrzeciego) {
+        punktyDoWygranej = Integer.valueOf(editTekstNumberPunktyDoWygranej.getText().toString());
 
         if (sprawdzaj == true) {
-            if (sumaPunktuwPierwszego < 1000)
+            if (sumaPunktuwPierwszego < punktyDoWygranej)
                 editTextNowePunktyPierwszego.setText("");
             else editTextNowePunktyPierwszego.setText(getString(R.string.textWygral));
-            if (sumaPunktuwDrugiego < 1000)
+            if (sumaPunktuwDrugiego < punktyDoWygranej)
                 editTextNowePunktyDrugiego.setText("");
             else editTextNowePunktyDrugiego.setText(getString(R.string.textWygral));
-            if (sumaPunktuwTrzeciego < 1000)
+            if (sumaPunktuwTrzeciego < punktyDoWygranej)
                 editTextNowePunktyTrzeciego.setText("");
             else editTextNowePunktyTrzeciego.setText(getString(R.string.textWygral));
         } else {

@@ -100,19 +100,23 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="number|numberSigned"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    tools:ignore="Autofill" />
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="112dp"
+                    android:layout_height="131dp"
                     android:layout_weight="1" />
 
-                <TextView
-                    android:id="@+id/textView"
+                <EditText
+                    android:id="@+id/editTextNPDoW"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="1000" />
+                    android:ems="10"
+                    android:inputType="number"
+                    android:text="1000"
+                    tools:text="1000" />
 
             </LinearLayout>
 
@@ -168,7 +172,8 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="number|numberSigned"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    tools:ignore="Autofill" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -282,7 +287,8 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="number|numberSigned"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    tools:ignore="Autofill" />
 
                 <Space
                     android:layout_width="match_parent"
