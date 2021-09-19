@@ -102,9 +102,11 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         switchSprawdz.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (switchSprawdz.isChecked() == true)
+                if (switchSprawdz.isChecked() ) {
                     sprawdzaj = true;
-                else sprawdzaj = false;
+                } else {
+                    sprawdzaj = false;
+                }
             }
         });
 
@@ -158,7 +160,7 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
             sprawdzKtoWygral(sumaPunktuwPierwszego, sumaPunktuwDrugiego, sumaPunktuwTrzeciego);
             pokarzCzyjaKolej();
             // i dodaj kolejke
-            liczKolejki += 1;
+            liczKolejki ++;
 
 
         }
@@ -185,18 +187,22 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
     }
 
     private void sprawdzCzyWypelnione() {
-        if (editTextNowePunktyPierwszego.length() == 0)
+        if (editTextNowePunktyPierwszego.length() == 0) {
             Toast.makeText(getApplicationContext(), getString(R.string.tekstNieWpisales) + editTextName1.getText().toString() + getString(R.string.textPuntow), Toast.LENGTH_SHORT).show();
-        if (editTextNowePunktyDrugiego.length() == 0)
+        }
+        if (editTextNowePunktyDrugiego.length() == 0) {
             Toast.makeText(getApplicationContext(), getString(R.string.tekstNieWpisales) + editTextName2.getText().toString() + getString(R.string.textPuntow), Toast.LENGTH_SHORT).show();
-        if (editTextNowePunktyTrzeciego.length() == 0)
+        }
+        if (editTextNowePunktyTrzeciego.length() == 0) {
             Toast.makeText(getApplicationContext(), getString(R.string.tekstNieWpisales) + editTextName3.getText().toString() + getString(R.string.textPuntow), Toast.LENGTH_LONG).show();
+        }
     }
 
     private void pokarzCzyjaKolej() {
 //                licze do trzech i co trzy restartuje
-        if (liczKolejki > 3)
+        if (liczKolejki > 3) {
             liczKolejki = 1;
+        }
 //          sprawdzam czyja kolej i zmienia mu kolor i pogrubienie
         if (liczKolejki == 1) {
             editTextName1.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
@@ -227,13 +233,13 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
     }
 
     private void pobierzIUstawWszystkiePola() {
-        nowePunktyPierwszego = Integer.valueOf(editTextNowePunktyPierwszego.getText().toString());
-        nowePunktyDrugiego = Integer.valueOf(editTextNowePunktyDrugiego.getText().toString());
-        nowePunktyTrzeciego = Integer.valueOf(editTextNowePunktyTrzeciego.getText().toString());
+        nowePunktyPierwszego = Integer.parseInt(editTextNowePunktyPierwszego.getText().toString());
+        nowePunktyDrugiego = Integer.parseInt(editTextNowePunktyDrugiego.getText().toString());
+        nowePunktyTrzeciego = Integer.parseInt(editTextNowePunktyTrzeciego.getText().toString());
 
-        starePunktyPierwszego = Integer.valueOf(textViewPunktyPierwszego.getText().toString());
-        starePunktyDrugiego = Integer.valueOf(textViewPunktyDrugiego.getText().toString());
-        starePunktyTrzeciego = Integer.valueOf(textViewPunktyTrzeciego.getText().toString());
+        starePunktyPierwszego = Integer.parseInt(textViewPunktyPierwszego.getText().toString());
+        starePunktyDrugiego = Integer.parseInt(textViewPunktyDrugiego.getText().toString());
+        starePunktyTrzeciego = Integer.parseInt(textViewPunktyTrzeciego.getText().toString());
 
         sumaPunktuwPierwszego = starePunktyPierwszego + nowePunktyPierwszego;
         sumaPunktuwDrugiego = starePunktyDrugiego + nowePunktyDrugiego;
@@ -246,18 +252,24 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
 
     private void sprawdzKtoWygral(int sumaPunktuwPierwszego, int sumaPunktuwDrugiego, int sumaPunktuwTrzeciego) {
         // punkty ktore mozna ustawic po przekroczeniu ktorych wyskoczy wygrana
-        punktyDoWygranej = Integer.valueOf(editTekstNumberPunktyDoWygranej.getText().toString());
-
-        if (sprawdzaj == true) {
-            if (sumaPunktuwPierwszego < punktyDoWygranej)
+        punktyDoWygranej = Integer.parseInt(editTekstNumberPunktyDoWygranej.getText().toString());
+//  jesli sprawdzaj = true w wersji skruconej
+        if (sprawdzaj) {
+            if (sumaPunktuwPierwszego < punktyDoWygranej) {
                 editTextNowePunktyPierwszego.setText("");
-            else editTextNowePunktyPierwszego.setText(getString(R.string.textWygral));
-            if (sumaPunktuwDrugiego < punktyDoWygranej)
+            } else {
+                editTextNowePunktyPierwszego.setText(getString(R.string.textWygral));
+            }
+            if (sumaPunktuwDrugiego < punktyDoWygranej) {
                 editTextNowePunktyDrugiego.setText("");
-            else editTextNowePunktyDrugiego.setText(getString(R.string.textWygral));
-            if (sumaPunktuwTrzeciego < punktyDoWygranej)
+            } else {
+                editTextNowePunktyDrugiego.setText(getString(R.string.textWygral));
+            }
+            if (sumaPunktuwTrzeciego < punktyDoWygranej) {
                 editTextNowePunktyTrzeciego.setText("");
-            else editTextNowePunktyTrzeciego.setText(getString(R.string.textWygral));
+            } else {
+                editTextNowePunktyTrzeciego.setText(getString(R.string.textWygral));
+            }
         } else {
             editTextNowePunktyPierwszego.setText("");
             editTextNowePunktyDrugiego.setText("");
