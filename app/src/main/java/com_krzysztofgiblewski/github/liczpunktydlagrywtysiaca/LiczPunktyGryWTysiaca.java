@@ -102,7 +102,7 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         switchSprawdz.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (switchSprawdz.isChecked() ) {
+                if (switchSprawdz.isChecked()) {
                     sprawdzaj = true;
                 } else {
                     sprawdzaj = false;
@@ -151,6 +151,9 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         editTextName2.setTextColor(Color.BLACK);
         editTextName3.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
         editTextName3.setTextColor(Color.BLACK);
+        editTextNowePunktyPierwszego.setText("");
+        editTextNowePunktyDrugiego.setText("");
+        editTextNowePunktyTrzeciego.setText("");
 
     }
 
@@ -160,7 +163,7 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
             sprawdzKtoWygral(sumaPunktuwPierwszego, sumaPunktuwDrugiego, sumaPunktuwTrzeciego);
             pokarzCzyjaKolej();
             // i dodaj kolejke
-            liczKolejki ++;
+            liczKolejki++;
 
 
         }
