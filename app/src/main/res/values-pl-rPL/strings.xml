@@ -16,4 +16,5 @@
     <string name="textWygral">WYGRAŁ</string>
     <string name="check_who_won">sprawdzaj kto wygrał</string>
     <string name="hintPunkty">PUNKTY</string>
+    <string name="hintPunktyDoWygranej">punkty do wygranej</string>
 </resources>

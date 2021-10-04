@@ -57,9 +57,9 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
+                    android:minHeight="48dp"
                     android:text="@string/name1"
                     android:textAlignment="center"
-                    android:textColor="@color/colorAccent"
                     android:textStyle="bold" />
 
                 <CheckBox
@@ -69,7 +69,8 @@
                     android:layout_weight="1"
                     android:text="@string/bomba"
                     android:textAlignment="viewStart"
-                    android:textSize="8sp" />
+                    android:textSize="8sp"
+                    tools:ignore="TouchTargetSizeCheck" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -101,7 +102,7 @@
                     android:hint="@string/hintPunkty"
                     android:inputType="number|numberSigned"
                     android:textAlignment="center"
-                    tools:ignore="Autofill" />
+                    tools:ignore="Autofill,TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -114,8 +115,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
+                    android:hint="@string/hintPunktyDoWygranej"
                     android:inputType="number"
                     android:text="1000"
+                    tools:ignore="TouchTargetSizeCheck"
                     tools:text="1000" />
 
             </LinearLayout>
