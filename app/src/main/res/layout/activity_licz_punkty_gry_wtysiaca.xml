@@ -57,7 +57,6 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:minHeight="48dp"
                     android:text="@string/name1"
                     android:textAlignment="center"
                     android:textStyle="bold" />
@@ -106,8 +105,15 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="131dp"
+                    android:layout_height="16dp"
                     android:layout_weight="1" />
+
+                <EditText
+                    android:id="@+id/editTextIloscGraczy"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/hintIluGraczy"
+                    android:text="3" />
 
                 <EditText
                     android:id="@+id/editTextNPDoW"
@@ -120,6 +126,16 @@
                     android:text="1000"
                     tools:ignore="TouchTargetSizeCheck"
                     tools:text="1000" />
+
+                <Switch
+                    android:id="@+id/switchSprawdz"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="@string/check_who_won"
+                    tools:checked="true"
+                    tools:visibility="visible" />
 
             </LinearLayout>
 
@@ -185,47 +201,23 @@
                     android:layout_height="20dp"
                     android:layout_weight="1" />
 
-                <LinearLayout
+                <Button
+                    android:id="@+id/button"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"></LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <Button
-                        android:id="@+id/button"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:text="@string/dodaj_punkty"
-                        android:textAlignment="center"
-                        android:textStyle="bold"
-                        tools:layout_editor_absoluteX="127dp"
-                        tools:layout_editor_absoluteY="342dp"
-                        tools:ignore="RtlCompat" />
-
-                </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:text="@string/dodaj_punkty"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    tools:ignore="RtlCompat"
+                    tools:layout_editor_absoluteX="127dp"
+                    tools:layout_editor_absoluteY="342dp" />
 
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:layout_weight="1" />
 
-
-                <Button
-
-                    android:id="@+id/buttonReset"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:ellipsize="middle"
-                    android:text="@string/reset_gry"
-                    android:textIsSelectable="false" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -299,18 +291,19 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="121dp"
+                    android:layout_height="77dp"
                     android:layout_weight="1" />
 
-                <Switch
-                    android:id="@+id/switchSprawdz"
+                <Button
+
+                    android:id="@+id/buttonReset"
                     android:layout_width="match_parent"
-                    android:layout_height="56dp"
-                    android:layout_weight="1"
-                    android:checked="true"
-                    android:text="@string/check_who_won"
-                    tools:checked="true"
-                    tools:visibility="visible" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:ellipsize="middle"
+                    android:text="@string/reset_gry"
+                    android:textIsSelectable="false" />
+
             </LinearLayout>
 
         </LinearLayout>

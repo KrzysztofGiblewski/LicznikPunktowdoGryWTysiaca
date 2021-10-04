@@ -21,8 +21,8 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
             buttonReset;
     private EditText editTextName1,
             editTextName2,
-            editTextName3;
-    private EditText editTekstNumberPunktyDoWygranej;
+            editTextName3, editTekstNumberPunktyDoWygranej,
+            editTextIloscGraczy;
 
     private TextView textViewPunktyPierwszego,
             textViewPunktyDrugiego,
@@ -34,6 +34,8 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
     private Switch switchSprawdz;
 
     private int liczKolejki = 2;
+
+    private int iluGraczy = 3;
 
     private int punktyDoWygranej = 1000;
 
@@ -183,13 +185,22 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         editTextNowePunktyDrugiego = (EditText) findViewById(R.id.editTextNoweZdobytePunktyDrugiego);
         editTextNowePunktyTrzeciego = (EditText) findViewById(R.id.editTextNoweZdobytePunktyTrzeciego);
 
+
         przycisk = (Button) findViewById(R.id.button);
         buttonReset = (Button) findViewById(R.id.buttonReset);
+
+        editTextIloscGraczy = (EditText) findViewById(R.id.editTextIloscGraczy);
 
         editTekstNumberPunktyDoWygranej = (EditText) findViewById(R.id.editTextNPDoW);
     }
 
     private void sprawdzCzyWypelnione() {
+        iluGraczy = Integer.parseInt(editTextIloscGraczy.getText().toString());
+        if (iluGraczy < 3)
+            editTextNowePunktyTrzeciego.setText("0");
+        if (iluGraczy < 2)
+            editTextNowePunktyDrugiego.setText("0");
+
         if (editTextNowePunktyPierwszego.length() == 0) {
             Toast.makeText(getApplicationContext(), getString(R.string.tekstNieWpisales) + editTextName1.getText().toString() + getString(R.string.textPuntow), Toast.LENGTH_SHORT).show();
         }
@@ -202,8 +213,8 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
     }
 
     private void pokarzCzyjaKolej() {
-//                licze do trzech i co trzy restartuje
-        if (liczKolejki > 3) {
+//                licze do trzech i co ilosc graczy domyslnie trzech resetuje
+        if (liczKolejki > iluGraczy) {
             liczKolejki = 1;
         }
 //          sprawdzam czyja kolej i zmienia mu kolor i pogrubienie

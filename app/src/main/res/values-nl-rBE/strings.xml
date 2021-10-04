@@ -17,4 +17,5 @@
     <string name="check_who_won">Überprüfen Sie, wer gewonnen hat</string>
     <string name="hintPunkty">PUNKTE</string>
     <string name="hintPunktyDoWygranej">Punkte zu gewinnen</string>
+    <string name="hintIluGraczy">Anzahl der Spieler</string>
 </resources>
