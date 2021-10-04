@@ -15,5 +15,6 @@
     <string name="textPuntow">points</string>
     <string name="textWygral">WON </string>
     <string name="check_who_won">check who won</string>
+    <string name="hintPunkty">POINTS</string>
 
 </resources>

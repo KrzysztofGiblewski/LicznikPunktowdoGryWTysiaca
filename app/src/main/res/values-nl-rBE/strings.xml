@@ -15,4 +15,5 @@
     <string name="textToastuZostawiamJakJest">es bleibt unverändert</string>
     <string name="textWygral">GEWONNEN</string>
     <string name="check_who_won">Überprüfen Sie, wer gewonnen hat</string>
+    <string name="hintPunkty">PUNKTE</string>
 </resources>
