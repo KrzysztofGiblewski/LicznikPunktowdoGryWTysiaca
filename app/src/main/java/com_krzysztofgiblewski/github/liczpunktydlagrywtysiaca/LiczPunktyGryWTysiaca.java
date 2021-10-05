@@ -191,7 +191,6 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         if (editTextIloscGraczy.length() <= 0) {
             iluGraczy = 3;
             editTextIloscGraczy.setText("3");
-            sprawdzajWypelnienie = false;
         } else iluGraczy = Integer.parseInt(editTextIloscGraczy.getText().toString());
         if (iluGraczy < 3)
             editTextNowePunktyTrzeciego.setText("0");
