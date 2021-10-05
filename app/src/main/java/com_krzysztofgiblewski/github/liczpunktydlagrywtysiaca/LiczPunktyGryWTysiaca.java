@@ -50,6 +50,7 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
             sumaPunktuwTrzeciego = 0;
 
     private boolean sprawdzaj = true;
+    private boolean sprawdzajWypelnienie = false;
 
 
     @Override
@@ -160,14 +161,12 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
     }
 
     private void jakWszystkieWypelnioneToDzialaj() {
-        if (editTextNowePunktyPierwszego.length() > 0 && editTextNowePunktyDrugiego.length() > 0 && editTextNowePunktyTrzeciego.length() > 0) {
+        if (sprawdzajWypelnienie == true) {
             pobierzIUstawWszystkiePola();
             sprawdzKtoWygral(sumaPunktuwPierwszego, sumaPunktuwDrugiego, sumaPunktuwTrzeciego);
             pokarzCzyjaKolej();
             // i dodaj kolejke
             liczKolejki++;
-
-
         }
     }
 
@@ -180,15 +179,11 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         editTextNowePunktyTrzeciego = (EditText) findViewById(R.id.editTextNoweZdobytePunktyTrzeciego);
         editTextIloscGraczy = (EditText) findViewById(R.id.editTextIloscGraczy);
         editTekstNumberPunktyDoWygranej = (EditText) findViewById(R.id.editTextNPDoW);
-
         textViewPunktyPierwszego = (TextView) findViewById(R.id.textViewPunktyPierwszego);
         textViewPunktyDrugiego = (TextView) findViewById(R.id.textViewPunktyDrugiego);
         textViewPunktyTrzeciego = (TextView) findViewById(R.id.textViewPunktyTrzeciego);
-
-
         przycisk = (Button) findViewById(R.id.button);
         buttonReset = (Button) findViewById(R.id.buttonReset);
-
     }
 
     private void sprawdzCzyWypelnione() {
@@ -196,6 +191,7 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         if (editTextIloscGraczy.length() <= 0) {
             iluGraczy = 3;
             editTextIloscGraczy.setText("3");
+            sprawdzajWypelnienie = false;
         } else iluGraczy = Integer.parseInt(editTextIloscGraczy.getText().toString());
         if (iluGraczy < 3)
             editTextNowePunktyTrzeciego.setText("0");
@@ -204,12 +200,24 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
 
         if (editTextNowePunktyPierwszego.length() == 0) {
             Toast.makeText(getApplicationContext(), getString(R.string.tekstNieWpisales) + " " + editTextName1.getText().toString() + " " + getString(R.string.textPuntow), Toast.LENGTH_SHORT).show();
+            sprawdzajWypelnienie = false;
         }
         if (editTextNowePunktyDrugiego.length() == 0) {
             Toast.makeText(getApplicationContext(), getString(R.string.tekstNieWpisales) + " " + editTextName2.getText().toString() + " " + getString(R.string.textPuntow), Toast.LENGTH_SHORT).show();
+            sprawdzajWypelnienie = false;
         }
         if (editTextNowePunktyTrzeciego.length() == 0) {
             Toast.makeText(getApplicationContext(), getString(R.string.tekstNieWpisales) + " " + editTextName3.getText().toString() + " " + getString(R.string.textPuntow), Toast.LENGTH_LONG).show();
+            sprawdzajWypelnienie = false;
+        }
+        if (editTextNowePunktyPierwszego.length() > 0 && editTextNowePunktyDrugiego.length() > 0 && editTextNowePunktyTrzeciego.length() > 0) {
+            sprawdzajWypelnienie = true;
+        }
+        // punkty ktore mozna ustawic po przekroczeniu ktorych wyskoczy wygrana
+        if (sprawdzaj) {
+            if (editTekstNumberPunktyDoWygranej.length() > 0) {
+                punktyDoWygranej = Integer.parseInt(editTekstNumberPunktyDoWygranej.getText().toString());
+            } else editTekstNumberPunktyDoWygranej.setText("1000");
         }
     }
 
@@ -264,15 +272,8 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         textViewPunktyDrugiego.setText(String.valueOf(sumaPunktuwDrugiego));
         textViewPunktyTrzeciego.setText(String.valueOf(sumaPunktuwTrzeciego));
         // ilość graczy
-        if (editTextIloscGraczy.length() <= 0) {
-            iluGraczy = 3;
-            editTextIloscGraczy.setText("3");
-        } else iluGraczy = Integer.parseInt(editTextIloscGraczy.getText().toString());
+        iluGraczy = Integer.parseInt(editTextIloscGraczy.getText().toString());
 
-        // punkty ktore mozna ustawic po przekroczeniu ktorych wyskoczy wygrana
-        if (editTekstNumberPunktyDoWygranej.length() > 0)
-            punktyDoWygranej = Integer.parseInt(editTekstNumberPunktyDoWygranej.getText().toString());
-        else editTekstNumberPunktyDoWygranej.setText("1000");
     }
 
     private void sprawdzKtoWygral(int sumaPunktuwPierwszego, int sumaPunktuwDrugiego, int sumaPunktuwTrzeciego) {
