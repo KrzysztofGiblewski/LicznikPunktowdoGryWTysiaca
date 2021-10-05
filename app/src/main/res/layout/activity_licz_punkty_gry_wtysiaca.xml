@@ -18,86 +18,69 @@
     tools:layout_editor_absoluteY="81dp"
     tools:visibility="visible">
 
-    <EditText
-        android:id="@+id/editTextName1"
-        android:layout_width="127dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="64dp"
-        android:layout_weight="1"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/name1"
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="16dp"
+        android:text="@string/dodaj_punkty"
         android:textAlignment="center"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextNoweZdobytePunktyDrugiego"
+        tools:ignore="RtlCompat"
+        tools:layout_editor_absoluteX="-27dp" />
 
-    <EditText
-        android:id="@+id/editTextName2"
-        android:layout_width="117dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="64dp"
-        android:layout_weight="1"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/name2"
-        android:textAlignment="center"
-        android:textStyle="normal"
-        app:layout_constraintStart_toEndOf="@+id/editTextName1"
-        app:layout_constraintTop_toTopOf="parent" />
+    <Button
 
-    <EditText
-        android:id="@+id/editTextName3"
-        android:layout_width="115dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="4dp"
-        android:layout_weight="1"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/name3"
-        android:textAlignment="center"
-        android:textStyle="normal"
+        android:id="@+id/buttonReset"
+        android:layout_width="192dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="16dp"
+        android:layout_weight="2"
+        android:ellipsize="middle"
+        android:text="@string/reset_gry"
+        android:textIsSelectable="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/editTextName2"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextNoweZdobytePunktyTrzeciego" />
 
     <CheckBox
         android:id="@+id/checkBoxBombaPierwszego"
-        android:layout_width="67dp"
-        android:layout_height="29dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
         android:layout_weight="1"
         android:text="@string/bomba"
         android:textAlignment="viewStart"
         android:textSize="8sp"
+        app:layout_constraintEnd_toStartOf="@+id/checkBoxBombaDrugiego"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextName1"
         tools:ignore="TouchTargetSizeCheck" />
 
     <CheckBox
         android:id="@+id/checkBoxBombaDrugiego"
-        android:layout_width="75dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="64dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
         android:layout_weight="1"
         android:text="@string/bomba"
         android:textAlignment="viewStart"
         android:textSize="8sp"
+        app:layout_constraintEnd_toStartOf="@+id/checkBoxBombaTrzeciego"
         app:layout_constraintStart_toEndOf="@+id/checkBoxBombaPierwszego"
         app:layout_constraintTop_toBottomOf="@+id/editTextName2" />
 
     <CheckBox
         android:id="@+id/checkBoxBombaTrzeciego"
-        android:layout_width="86dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="64dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_weight="1"
@@ -108,24 +91,171 @@
         app:layout_constraintStart_toEndOf="@+id/checkBoxBombaDrugiego"
         app:layout_constraintTop_toBottomOf="@+id/editTextName3" />
 
+    <EditText
+        android:id="@+id/editTextName1"
+        android:layout_width="127dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/name1"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/editTextName2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextName2"
+        android:layout_width="124dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/name2"
+        android:textAlignment="center"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toStartOf="@+id/editTextName3"
+        app:layout_constraintStart_toEndOf="@+id/editTextName1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextName3"
+        android:layout_width="118dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="4dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/name3"
+        android:textAlignment="center"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.656"
+        app:layout_constraintStart_toEndOf="@+id/editTextName2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextNoweZdobytePunktyPierwszego"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="@string/hintPunkty"
+        android:inputType="number|numberSigned"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/editTextNoweZdobytePunktyDrugiego"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPunktyPierwszego"
+        tools:ignore="Autofill,TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/editTextNoweZdobytePunktyDrugiego"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="@string/hintPunkty"
+        android:inputType="number|numberSigned"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/editTextNoweZdobytePunktyTrzeciego"
+        app:layout_constraintStart_toEndOf="@+id/editTextNoweZdobytePunktyPierwszego"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPunktyDrugiego"
+        tools:ignore="Autofill" />
+
+    <EditText
+        android:id="@+id/editTextNoweZdobytePunktyTrzeciego"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="@string/hintPunkty"
+        android:inputType="number|numberSigned"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editTextNoweZdobytePunktyDrugiego"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPunktyTrzeciego"
+        tools:ignore="Autofill" />
+
+    <EditText
+        android:id="@+id/editTextNPDoW"
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="@string/hintPunktyDoWygranej"
+        android:inputType="number|numberSigned"
+        android:text="1000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switchSprawdz"
+        tools:ignore="TouchTargetSizeCheck"
+        tools:text="1000" />
+
+    <EditText
+        android:id="@+id/editTextIloscGraczy"
+        android:layout_width="198dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:hint="@string/hintIluGraczy"
+        android:inputType="number|numberSigned"
+        android:text="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNPDoW" />
+
+    <Switch
+        android:id="@+id/switchSprawdz"
+        android:layout_width="193dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_weight="1"
+        android:checked="true"
+        android:text="@string/check_who_won"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonReset"
+        tools:checked="true"
+        tools:visibility="visible" />
+
     <TextView
         android:id="@+id/textViewPunktyPierwszego"
-        android:layout_width="124dp"
+        android:layout_width="100dp"
         android:layout_height="30dp"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:layout_weight="1"
         android:text="0"
         android:textAlignment="center"
         android:textColor="#050505"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/textViewPunktyDrugiego"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxBombaPierwszego" />
 
     <TextView
         android:id="@+id/textViewPunktyDrugiego"
-        android:layout_width="124dp"
+        android:layout_width="100dp"
         android:layout_height="30dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
@@ -142,9 +272,9 @@
 
     <TextView
         android:id="@+id/textViewPunktyTrzeciego"
-        android:layout_width="124dp"
+        android:layout_width="100dp"
         android:layout_height="30dp"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_weight="1"
@@ -163,130 +293,5 @@
         app:barrierDirection="left"
         tools:layout_editor_absoluteX="36dp"
         tools:layout_editor_absoluteY="126dp" />
-
-    <EditText
-        android:id="@+id/editTextNoweZdobytePunktyPierwszego"
-        android:layout_width="123dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_weight="1"
-        android:ems="10"
-        android:hint="@string/hintPunkty"
-        android:inputType="number|numberSigned"
-        android:textAlignment="center"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPunktyPierwszego"
-        tools:ignore="Autofill,TouchTargetSizeCheck,TouchTargetSizeCheck" />
-
-    <EditText
-        android:id="@+id/editTextNoweZdobytePunktyDrugiego"
-        android:layout_width="125dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_weight="1"
-        android:ems="10"
-        android:hint="@string/hintPunkty"
-        android:inputType="number|numberSigned"
-        android:textAlignment="center"
-        app:layout_constraintStart_toEndOf="@+id/editTextNoweZdobytePunktyPierwszego"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPunktyDrugiego"
-        tools:ignore="Autofill" />
-
-    <EditText
-        android:id="@+id/editTextNoweZdobytePunktyTrzeciego"
-        android:layout_width="122dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_weight="1"
-        android:ems="10"
-        android:hint="@string/hintPunkty"
-        android:inputType="number|numberSigned"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextNoweZdobytePunktyDrugiego"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPunktyTrzeciego"
-        tools:ignore="Autofill" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginTop="16dp"
-        android:text="@string/dodaj_punkty"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNoweZdobytePunktyDrugiego"
-        tools:ignore="RtlCompat"
-        tools:layout_editor_absoluteX="-27dp" />
-
-    <Button
-
-        android:id="@+id/buttonReset"
-        android:layout_width="192dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="8dp"
-        android:layout_weight="2"
-        android:ellipsize="middle"
-        android:text="@string/reset_gry"
-        android:textIsSelectable="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNoweZdobytePunktyTrzeciego" />
-
-    <Switch
-        android:id="@+id/switchSprawdz"
-        android:layout_width="193dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_weight="1"
-        android:checked="true"
-        android:text="@string/check_who_won"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonReset"
-        tools:checked="true"
-        tools:visibility="visible" />
-
-    <EditText
-        android:id="@+id/editTextNPDoW"
-        android:layout_width="200dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_weight="1"
-        android:ems="10"
-        android:hint="@string/hintPunktyDoWygranej"
-        android:inputType="number|numberSigned"
-        android:text="1000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switchSprawdz"
-        tools:ignore="TouchTargetSizeCheck"
-        tools:text="1000" />
-
-    <EditText
-        android:id="@+id/editTextIloscGraczy"
-        android:layout_width="198dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:hint="@string/hintIluGraczy"
-        android:inputType="number|numberSigned"
-        android:text="3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNPDoW" />
 
 </android.support.constraint.ConstraintLayout>
