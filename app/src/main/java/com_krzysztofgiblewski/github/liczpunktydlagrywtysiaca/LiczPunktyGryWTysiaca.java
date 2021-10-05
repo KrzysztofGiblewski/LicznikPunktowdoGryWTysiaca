@@ -192,10 +192,14 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
             iluGraczy = 3;
             editTextIloscGraczy.setText("3");
         } else iluGraczy = Integer.parseInt(editTextIloscGraczy.getText().toString());
-        if (iluGraczy < 3)
+        if (iluGraczy < 3) {
             editTextNowePunktyTrzeciego.setText("0");
-        if (iluGraczy < 2)
+            textViewPunktyTrzeciego.setText("0");
+        }
+        if (iluGraczy < 2) {
             editTextNowePunktyDrugiego.setText("0");
+            textViewPunktyDrugiego.setText("0");
+        }
 
         if (editTextNowePunktyPierwszego.length() == 0) {
             Toast.makeText(getApplicationContext(), getString(R.string.tekstNieWpisales) + " " + editTextName1.getText().toString() + " " + getString(R.string.textPuntow), Toast.LENGTH_SHORT).show();
