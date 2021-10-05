@@ -56,18 +56,18 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_licz_punkty_gry_wtysiaca);
-// ustawiam editText i textView i button powiazuje z r.id.button itd
+        // ustawiam editText i textView i button powiazuje z r.id.button itd
         setupWszystkichElementow();
-// ukrywam gorna belke z nazwa apki
+        // ukrywam gorna belke z nazwa apki
         getSupportActionBar().hide();
 
 
         przycisk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-// jak brakuje wpisanych punktow
+                // jak brakuje wpisanych punktow
                 sprawdzCzyWypelnione();
-// jesli wszystkie punkty sa ok to sprawdzam
+                // jesli wszystkie punkty sa ok to sprawdzam
                 jakWszystkieWypelnioneToDzialaj();
 
             }
@@ -78,7 +78,7 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         buttonReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-// tworze okno dialogowe dla potwierdzenia czy restartować
+                // tworze okno dialogowe dla potwierdzenia czy restartować
                 AlertDialog.Builder oknoDialogowe = new AlertDialog.Builder(LiczPunktyGryWTysiaca.this);
                 oknoDialogowe.setTitle(getString(R.string.textDialogBoxTytul));
                 oknoDialogowe.setMessage(getString(R.string.textDialogBoxText));
@@ -94,12 +94,12 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
                         Toast.makeText(LiczPunktyGryWTysiaca.this, getString(R.string.textToastuZostawiamJakJest), Toast.LENGTH_SHORT).show();
                     }
                 });
-// i wyświetlam okno dialogowe
+                // i wyświetlam okno dialogowe
                 oknoDialogowe.show();
 
             }
         });
-// tu ustawiam swich tak żeby zmieniał zmienną sprawdzaj na true lub false
+        // tu ustawiam swich tak żeby zmieniał zmienną sprawdzaj na true lub false
         switchSprawdz = findViewById(R.id.switchSprawdz);
         switchSprawdz.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -175,40 +175,41 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         editTextName1 = (EditText) findViewById(R.id.editTextName1);
         editTextName2 = (EditText) findViewById(R.id.editTextName2);
         editTextName3 = (EditText) findViewById(R.id.editTextName3);
-
+        editTextNowePunktyPierwszego = (EditText) findViewById(R.id.editTextNoweZdobytePunktyPierwszego);
+        editTextNowePunktyDrugiego = (EditText) findViewById(R.id.editTextNoweZdobytePunktyDrugiego);
+        editTextNowePunktyTrzeciego = (EditText) findViewById(R.id.editTextNoweZdobytePunktyTrzeciego);
+        editTextIloscGraczy = (EditText) findViewById(R.id.editTextIloscGraczy);
+        editTekstNumberPunktyDoWygranej = (EditText) findViewById(R.id.editTextNPDoW);
 
         textViewPunktyPierwszego = (TextView) findViewById(R.id.textViewPunktyPierwszego);
         textViewPunktyDrugiego = (TextView) findViewById(R.id.textViewPunktyDrugiego);
         textViewPunktyTrzeciego = (TextView) findViewById(R.id.textViewPunktyTrzeciego);
 
-        editTextNowePunktyPierwszego = (EditText) findViewById(R.id.editTextNoweZdobytePunktyPierwszego);
-        editTextNowePunktyDrugiego = (EditText) findViewById(R.id.editTextNoweZdobytePunktyDrugiego);
-        editTextNowePunktyTrzeciego = (EditText) findViewById(R.id.editTextNoweZdobytePunktyTrzeciego);
-
 
         przycisk = (Button) findViewById(R.id.button);
         buttonReset = (Button) findViewById(R.id.buttonReset);
 
-        editTextIloscGraczy = (EditText) findViewById(R.id.editTextIloscGraczy);
-
-        editTekstNumberPunktyDoWygranej = (EditText) findViewById(R.id.editTextNPDoW);
     }
 
     private void sprawdzCzyWypelnione() {
-        iluGraczy = Integer.parseInt(editTextIloscGraczy.getText().toString());
+
+        if (editTextIloscGraczy.length() <= 0) {
+            iluGraczy = 3;
+            editTextIloscGraczy.setText("3");
+        } else iluGraczy = Integer.parseInt(editTextIloscGraczy.getText().toString());
         if (iluGraczy < 3)
             editTextNowePunktyTrzeciego.setText("0");
         if (iluGraczy < 2)
             editTextNowePunktyDrugiego.setText("0");
 
         if (editTextNowePunktyPierwszego.length() == 0) {
-            Toast.makeText(getApplicationContext(), getString(R.string.tekstNieWpisales) + editTextName1.getText().toString() + getString(R.string.textPuntow), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.tekstNieWpisales) + " " + editTextName1.getText().toString() + " " + getString(R.string.textPuntow), Toast.LENGTH_SHORT).show();
         }
         if (editTextNowePunktyDrugiego.length() == 0) {
-            Toast.makeText(getApplicationContext(), getString(R.string.tekstNieWpisales) + editTextName2.getText().toString() + getString(R.string.textPuntow), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.tekstNieWpisales) + " " + editTextName2.getText().toString() + " " + getString(R.string.textPuntow), Toast.LENGTH_SHORT).show();
         }
         if (editTextNowePunktyTrzeciego.length() == 0) {
-            Toast.makeText(getApplicationContext(), getString(R.string.tekstNieWpisales) + editTextName3.getText().toString() + getString(R.string.textPuntow), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.tekstNieWpisales) + " " + editTextName3.getText().toString() + " " + getString(R.string.textPuntow), Toast.LENGTH_LONG).show();
         }
     }
 
@@ -262,11 +263,20 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         textViewPunktyPierwszego.setText(String.valueOf(sumaPunktuwPierwszego));
         textViewPunktyDrugiego.setText(String.valueOf(sumaPunktuwDrugiego));
         textViewPunktyTrzeciego.setText(String.valueOf(sumaPunktuwTrzeciego));
+        // ilość graczy
+        if (editTextIloscGraczy.length() <= 0) {
+            iluGraczy = 3;
+            editTextIloscGraczy.setText("3");
+        } else iluGraczy = Integer.parseInt(editTextIloscGraczy.getText().toString());
+
+        // punkty ktore mozna ustawic po przekroczeniu ktorych wyskoczy wygrana
+        if (editTekstNumberPunktyDoWygranej.length() > 0)
+            punktyDoWygranej = Integer.parseInt(editTekstNumberPunktyDoWygranej.getText().toString());
+        else editTekstNumberPunktyDoWygranej.setText("1000");
     }
 
     private void sprawdzKtoWygral(int sumaPunktuwPierwszego, int sumaPunktuwDrugiego, int sumaPunktuwTrzeciego) {
-        // punkty ktore mozna ustawic po przekroczeniu ktorych wyskoczy wygrana
-        punktyDoWygranej = Integer.parseInt(editTekstNumberPunktyDoWygranej.getText().toString());
+
 //  jesli sprawdzaj = true w wersji skruconej
         if (sprawdzaj) {
             if (sumaPunktuwPierwszego < punktyDoWygranej) {

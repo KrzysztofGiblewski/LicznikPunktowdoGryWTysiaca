@@ -112,6 +112,7 @@
                     android:id="@+id/editTextIloscGraczy"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:inputType="number|numberSigned"
                     android:hint="@string/hintIluGraczy"
                     android:text="3" />
 
@@ -122,7 +123,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/hintPunktyDoWygranej"
-                    android:inputType="number"
+                    android:inputType="number|numberSigned"
                     android:text="1000"
                     tools:ignore="TouchTargetSizeCheck"
                     tools:text="1000" />
@@ -153,7 +154,8 @@
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:text="@string/name2"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textStyle="normal" />
 
                 <CheckBox
                     android:id="@+id/checkBoxBombaDrugiego"
@@ -241,7 +243,8 @@
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:text="@string/name3"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textStyle="normal" />/>
 
                 <CheckBox
                     android:id="@+id/checkBoxBombaTrzeciego"
