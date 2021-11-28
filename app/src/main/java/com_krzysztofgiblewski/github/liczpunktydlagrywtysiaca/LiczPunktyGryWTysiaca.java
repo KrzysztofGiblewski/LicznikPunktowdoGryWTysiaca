@@ -59,7 +59,7 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         setContentView(R.layout.activity_licz_punkty_gry_wtysiaca);
         // ustawiam editText i textView i button powiazuje z r.id.button itd
         setupWszystkichElementow();
-        // ukrywam gorna belke z nazwa apki
+        // ukrywam gorna belke z nazwa apki :)
         getSupportActionBar().hide();
 
 
@@ -265,10 +265,10 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         nowePunktyPierwszego = Integer.parseInt(editTextNowePunktyPierwszego.getText().toString());
         nowePunktyDrugiego = Integer.parseInt(editTextNowePunktyDrugiego.getText().toString());
         nowePunktyTrzeciego = Integer.parseInt(editTextNowePunktyTrzeciego.getText().toString());
-
         starePunktyPierwszego = Integer.parseInt(textViewPunktyPierwszego.getText().toString());
         starePunktyDrugiego = Integer.parseInt(textViewPunktyDrugiego.getText().toString());
         starePunktyTrzeciego = Integer.parseInt(textViewPunktyTrzeciego.getText().toString());
+        iluGraczy = Integer.parseInt(editTextIloscGraczy.getText().toString());
 
         sumaPunktuwPierwszego = starePunktyPierwszego + nowePunktyPierwszego;
         sumaPunktuwDrugiego = starePunktyDrugiego + nowePunktyDrugiego;
@@ -277,38 +277,34 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
         textViewPunktyPierwszego.setText(String.valueOf(sumaPunktuwPierwszego));
         textViewPunktyDrugiego.setText(String.valueOf(sumaPunktuwDrugiego));
         textViewPunktyTrzeciego.setText(String.valueOf(sumaPunktuwTrzeciego));
-        // ilość graczy
-        iluGraczy = Integer.parseInt(editTextIloscGraczy.getText().toString());
+
 
     }
 
     private void sprawdzKtoWygral(int sumaPunktuwPierwszego, int sumaPunktuwDrugiego, int sumaPunktuwTrzeciego) {
-
-//  jesli sprawdzaj = true w wersji skruconej
+        editTextNowePunktyPierwszego.setText("");
+        editTextNowePunktyPierwszego.setHint(getString(R.string.hintPunkty));
+        editTextNowePunktyDrugiego.setText("");
+        editTextNowePunktyDrugiego.setHint(getString(R.string.hintPunkty));
+        editTextNowePunktyTrzeciego.setText("");
+        editTextNowePunktyTrzeciego.setHint(getString(R.string.hintPunkty));
+        //  jesli sprawdzaj = true w wersji skruconej
         if (sprawdzaj) {
-
-                editTextNowePunktyPierwszego.setText("");
-                editTextNowePunktyPierwszego.setHint(getString(R.string.hintPunkty));
-                editTextNowePunktyDrugiego.setText("");
+            if (sumaPunktuwPierwszego > punktyDoWygranej && sumaPunktuwPierwszego > sumaPunktuwDrugiego && sumaPunktuwPierwszego > sumaPunktuwTrzeciego) {
+                editTextNowePunktyPierwszego.setHint(getString(R.string.textWygral));
                 editTextNowePunktyDrugiego.setHint(getString(R.string.hintPunkty));
-                editTextNowePunktyTrzeciego.setText("");
                 editTextNowePunktyTrzeciego.setHint(getString(R.string.hintPunkty));
-
-                if (sumaPunktuwPierwszego > punktyDoWygranej && sumaPunktuwPierwszego > sumaPunktuwDrugiego && sumaPunktuwPierwszego > sumaPunktuwTrzeciego) {
-                    editTextNowePunktyPierwszego.setHint(getString(R.string.textWygral));
-                    editTextNowePunktyDrugiego.setHint(getString(R.string.hintPunkty));
-                    editTextNowePunktyTrzeciego.setHint(getString(R.string.hintPunkty));
-                }
-                if (sumaPunktuwDrugiego > punktyDoWygranej && sumaPunktuwDrugiego > sumaPunktuwPierwszego && sumaPunktuwDrugiego > sumaPunktuwTrzeciego) {
-                    editTextNowePunktyDrugiego.setHint(getString(R.string.textWygral));
-                    editTextNowePunktyPierwszego.setHint(getString(R.string.hintPunkty));
-                    editTextNowePunktyTrzeciego.setHint(getString(R.string.hintPunkty));
-                }
-                if (sumaPunktuwTrzeciego > punktyDoWygranej && sumaPunktuwTrzeciego > sumaPunktuwPierwszego && sumaPunktuwTrzeciego > sumaPunktuwDrugiego) {
-                    editTextNowePunktyTrzeciego.setHint(getString(R.string.textWygral));
-                    editTextNowePunktyPierwszego.setHint(getString(R.string.hintPunkty));
-                    editTextNowePunktyDrugiego.setHint(getString(R.string.hintPunkty));
-                }
+            }
+            if (sumaPunktuwDrugiego > punktyDoWygranej && sumaPunktuwDrugiego > sumaPunktuwPierwszego && sumaPunktuwDrugiego > sumaPunktuwTrzeciego) {
+                editTextNowePunktyDrugiego.setHint(getString(R.string.textWygral));
+                editTextNowePunktyPierwszego.setHint(getString(R.string.hintPunkty));
+                editTextNowePunktyTrzeciego.setHint(getString(R.string.hintPunkty));
+            }
+            if (sumaPunktuwTrzeciego > punktyDoWygranej && sumaPunktuwTrzeciego > sumaPunktuwPierwszego && sumaPunktuwTrzeciego > sumaPunktuwDrugiego) {
+                editTextNowePunktyTrzeciego.setHint(getString(R.string.textWygral));
+                editTextNowePunktyPierwszego.setHint(getString(R.string.hintPunkty));
+                editTextNowePunktyDrugiego.setHint(getString(R.string.hintPunkty));
+            }
 
         }
 

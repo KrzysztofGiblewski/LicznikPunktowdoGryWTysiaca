@@ -18,4 +18,5 @@
     <string name="hintPunkty">PUNKTE</string>
     <string name="hintPunktyDoWygranej">Punkte zu gewinnen</string>
     <string name="hintIluGraczy">Anzahl der Spieler</string>
+    <string name="imie">Name</string>
 </resources>

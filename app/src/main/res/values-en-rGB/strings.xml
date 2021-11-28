@@ -12,10 +12,11 @@
     <string name="textDialogBoxText">Are you sure?</string>
     <string name="textDialogBoxTytul">Confirm</string>
     <string name="textPuntow">points</string>
-    <string name="textToastuZostawiamJakJest">Stays as is</string>
+    <string name="textToastuZostawiamJakJest">Leave as is</string>
     <string name="textWygral">WON</string>
     <string name="check_who_won">check who won</string>
     <string name="hintPunkty">POINTS</string>
     <string name="hintPunktyDoWygranej">points to win</string>
     <string name="hintIluGraczy">how many players</string>
+    <string name="imie">Name</string>
 </resources>
