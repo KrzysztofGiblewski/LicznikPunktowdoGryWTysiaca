@@ -8,7 +8,7 @@
     android:background="@drawable/kartydogry"
     android:clipChildren="false"
     android:clipToPadding="false"
-    android:foregroundTint="#009688"
+    android:foregroundTint="#019922"
     android:foregroundTintMode="add"
     android:hapticFeedbackEnabled="false"
     android:isScrollContainer="true"

@@ -39,15 +39,9 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
 
     private int punktyDoWygranej = 1000;
 
-    private int starePunktyPierwszego,
-            starePunktyDrugiego,
-            starePunktyTrzeciego,
-            nowePunktyPierwszego,
-            nowePunktyDrugiego,
-            nowePunktyTrzeciego,
-            sumaPunktuwPierwszego,
-            sumaPunktuwDrugiego,
-            sumaPunktuwTrzeciego = 0;
+    private int sumaPunktuwPierwszego;
+    private int sumaPunktuwDrugiego;
+    private int sumaPunktuwTrzeciego = 0;
 
     private boolean sprawdzaj = true;
     private boolean sprawdzajWypelnienie = false;
@@ -164,7 +158,7 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
     }
 
     private void jakWszystkieWypelnioneToDzialaj() {
-        if (sprawdzajWypelnienie == true) {
+        if (sprawdzajWypelnienie) {
             pobierzIUstawWszystkiePola();
             sprawdzKtoWygral(sumaPunktuwPierwszego, sumaPunktuwDrugiego, sumaPunktuwTrzeciego);
             pokarzCzyjaKolej();
@@ -262,12 +256,12 @@ public class LiczPunktyGryWTysiaca extends AppCompatActivity {
     }
 
     private void pobierzIUstawWszystkiePola() {
-        nowePunktyPierwszego = Integer.parseInt(editTextNowePunktyPierwszego.getText().toString());
-        nowePunktyDrugiego = Integer.parseInt(editTextNowePunktyDrugiego.getText().toString());
-        nowePunktyTrzeciego = Integer.parseInt(editTextNowePunktyTrzeciego.getText().toString());
-        starePunktyPierwszego = Integer.parseInt(textViewPunktyPierwszego.getText().toString());
-        starePunktyDrugiego = Integer.parseInt(textViewPunktyDrugiego.getText().toString());
-        starePunktyTrzeciego = Integer.parseInt(textViewPunktyTrzeciego.getText().toString());
+        int nowePunktyPierwszego = Integer.parseInt(editTextNowePunktyPierwszego.getText().toString());
+        int nowePunktyDrugiego = Integer.parseInt(editTextNowePunktyDrugiego.getText().toString());
+        int nowePunktyTrzeciego = Integer.parseInt(editTextNowePunktyTrzeciego.getText().toString());
+        int starePunktyPierwszego = Integer.parseInt(textViewPunktyPierwszego.getText().toString());
+        int starePunktyDrugiego = Integer.parseInt(textViewPunktyDrugiego.getText().toString());
+        int starePunktyTrzeciego = Integer.parseInt(textViewPunktyTrzeciego.getText().toString());
         iluGraczy = Integer.parseInt(editTextIloscGraczy.getText().toString());
 
         sumaPunktuwPierwszego = starePunktyPierwszego + nowePunktyPierwszego;
